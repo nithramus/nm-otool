@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quit_clean.c                                       :+:      :+:    :+:   */
+/*   show_symbols.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/09 19:17:28 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/10 14:08:27 by bandre           ###   ########.fr       */
+/*   Created: 2018/05/10 18:21:41 by bandre            #+#    #+#             */
+/*   Updated: 2018/05/10 19:39:55 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	quit_clean()
+void	find_symbol(t_libft_chained_list **first, t_libft_chained_list *section, void *params)
 {
-	ft_putendl("Malloc fail");
-	exit(0);
+	t_search_section	*search;
+	t_section			*sect;
+
+	sect = (t_section*)section->data;
+	search = (t_search_section*)params;
+	if (sect->num == search->value)
+	{
+
+	}
+}
+
+void	show_symbols(
+	t_libft_chained_list **symbols,
+	t_libft_chained_list *sections,
+	t_mainstruct *fiel_struct)
+{
+
 }

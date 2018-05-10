@@ -6,7 +6,7 @@
 #    By: bandre <bandre@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/07 16:17:12 by bandre            #+#    #+#              #
-#    Updated: 2018/05/09 15:01:28 by bandre           ###   ########.fr        #
+#    Updated: 2018/05/10 17:56:16 by bandre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,14 @@ OBJ_PATH = nm_obj
 SRC = nm.o\
 	  parse_arg.o\
 	  reverse.o\
+	  create_symbol_list.o\
+	  parse_header.o\
+	  quit_clean.o\
+	  get_sections.o\
 
-CC = gcc
+CC = gcc -g
 
-FLAG = -Wall -Wextra -Werror -O
+FLAG = -Wall -Wextra -O #-Werror
 
 LIB = libft/libftprintf.a libft_chained_list/libft_chained_list.a
 

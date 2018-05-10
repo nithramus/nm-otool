@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 13:01:35 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/09 20:04:16 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/10 14:25:05 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,28 @@ void	get_file(t_mainstruct *file_struct, char *file_name)
 	{
 		file_struct->is_valid = -1;
 		file_struct->error = "Unable to open file";
+		return ;
 	}
 	if (fstat(fd, &buff) < -1)
 	{
 		file_struct->is_valid = -1;
 		file_struct->error = "Stat failed";
+		return ;
 	}
 	if (!(file = (char*)malloc(buff.st_size + 1)))
 	{
 		file_struct->is_valid = -1;
 		file_struct->error = "Malloc failed";
+		return ;
 	}
 	if (read(fd, file, buff.st_size) < buff.st_size)
 	{
 		file_struct->is_valid = -1;
 		file_struct->error = "Read fail";
+		return ;
 	}
 	file_struct->file = file;
-	file_struct->file_length = ft_strlen(file);
+	file_struct->file_length = buff.st_size;
 }
 
 void	initmainstruct(t_mainstruct *file)
@@ -61,10 +65,10 @@ void	create_file(t_libft_chained_list **first, char *file)
 
 	file_struct = malloc(sizeof(t_mainstruct));
 	if (!file_struct)
-		exit(1);
+		quit_clean();
 	initmainstruct(file_struct);
 	get_file(file_struct, file);
-	if (file_struct->is_valid)
+	if (!file_struct->is_valid)
 		return ;
 	parse_header(file_struct);
 	add_back_maillon(first, file_struct);
@@ -72,10 +76,17 @@ void	create_file(t_libft_chained_list **first, char *file)
 
 void	parse_arg(t_libft_chained_list **first, int argc, char **argv)
 {
+	int	i;
+
+	i = 1;
 	if (argc < 2)
 		create_file(first, "a.out");
 	else
 	{
-		
+		while (i < argc)
+		{
+			create_file(first, argv[i]);
+			i++;
+		}
 	}
 }

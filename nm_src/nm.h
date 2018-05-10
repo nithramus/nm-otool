@@ -30,9 +30,27 @@ typedef struct	s_symbol
 	char		*name;
 	uint64_t	value;
 	int			type;
-	int			segment;
+	uint8_t		section;
 }				t_symbol;
 
-void			create_symbol_list(t_libft_chained_list **symbols, t_mainstruct *file);
+typedef struct	s_section
+{
+	char			*name;
+	unsigned int	num;
+}				t_section;
+
+typedef struct	s_search_section
+{
+	unsigned int	value;
+	char			*type;
+}				t_search_section;
+
+void			create_symbol_list(t_libft_chained_list **symbols, t_libft_chained_list **sections, t_mainstruct *file);
+void			parse_arg(t_libft_chained_list **first, int argc, char **argv);
+void			quit_clean();
+void			parse_header(t_mainstruct *file_struct);
+int				reverse(void *ptr, size_t size, t_mainstruct *file);
+void			get_sections_64(t_libft_chained_list **sections, struct segment_command_64 *lc);
+
 
 #endif

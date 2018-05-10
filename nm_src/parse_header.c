@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 19:37:30 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/09 20:03:53 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/10 15:31:35 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	get_header(t_mainstruct *file_struct)
 {
 	struct mach_header_64	header;
-	int						magic;
 
 	header = *(struct mach_header_64*)file_struct->file;
 	if (header.magic == MH_MAGIC || header.magic == MH_MAGIC_64)
@@ -30,15 +29,17 @@ void	get_header(t_mainstruct *file_struct)
 	{
 		file_struct->is_valid = 0;
 		file_struct->error = "Invalid header";
-		return NULL;
+		return ;
 	}
 	if (header.magic == MH_MAGIC || header.magic == MH_CIGAM)
 	{
+		ft_putendl("32bits");
 		file_struct->size_of_header = sizeof(struct mach_header);
 		file_struct->is_64 = 0;
 	}
 	else if (header.magic == MH_MAGIC_64 || header.magic == MH_CIGAM_64)
 	{
+		ft_putendl("64bits");		
 		file_struct->size_of_header = sizeof(struct mach_header_64);
 		file_struct->is_64 = 1;
 	}
@@ -46,22 +47,24 @@ void	get_header(t_mainstruct *file_struct)
 	{
 		file_struct->is_valid = 0;
 		file_struct->error = "Invalid header";
-		return NULL;
+		return ;
 	}
 	file_struct->nb_command = header.ncmds;
+	file_struct->file_type = header.filetype;
 }
 
 void	parse_header(t_mainstruct *file_struct)
 {
-	struct mach_header_64 header;
-
-	if (file_struct->file_length < (sizeof(struct mach_header_64)))
+	if (file_struct->file_length < (int)(sizeof(struct mach_header_64)))
 	{
 		file_struct->is_valid = 0;
 		file_struct->error = "File too short";
 		return ;
 	}
-
+	else
+	{
+		get_header(file_struct);
+	}
 	// 1/ test_header
 	
 }
