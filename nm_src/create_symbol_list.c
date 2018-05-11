@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 15:08:39 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/10 18:05:33 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/11 12:35:39 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,12 @@ void	get_all_symbols(
 			quit_clean();
 		}
 		// VERIFIER SYMTABSIZE, et stringable jump
-		ft_putendl(stringable + symtab->n_un.n_strx);
+		// ft_putendl(stringable + symtab->n_un.n_strx);
 		symbol->name = stringable + symtab->n_un.n_strx;
 		symbol->value = symtab->n_value;
 		symbol->type = symtab->n_type;
-		symbol->section = symtab->n_sect;
+		symbol->section = (int)symtab->n_sect;
+		// ft_printf("value %d\n", symbol->section);
 		add_back_maillon(symbols, symbol);
 
 		if (file_struct->is_64)
@@ -60,8 +61,10 @@ void	create_symbol_list(t_libft_chained_list **symbols, t_libft_chained_list **s
 {
 	struct load_command *lc;
 	int			i;
+	int			j;
 
 	i = 0;
+	j = 1;
 	lc = (void*)(struct load_command*)(file_struct->file + file_struct->size_of_header);
 	while ((uint32_t)i < file_struct->nb_command)
 	{
@@ -69,13 +72,13 @@ void	create_symbol_list(t_libft_chained_list **symbols, t_libft_chained_list **s
 	// TODO: reverse
 		if (lc->cmd == LC_SYMTAB)
 		{
-			ft_putendl("found the thing");
+			// ft_putendl("found the thing");
 			get_all_symbols(symbols, file_struct, (struct symtab_command*)lc);
 		}
 		else if (file_struct->is_64 && lc->cmd == LC_SEGMENT_64)
 		{
-			ft_putendl("SEGMENT 64");
-			get_sections_64(sections, (struct segment_command_64*)lc);
+			// ft_putendl("SEGMENT 64");
+			get_sections_64(sections, (struct segment_command_64*)lc, &j);
 		}
 		else if (!file_struct->is_64 && lc->cmd == LC_SEGMENT)
 		{

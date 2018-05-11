@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 19:37:30 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/10 15:31:35 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/11 12:36:03 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ void	get_header(t_mainstruct *file_struct)
 	}
 	if (header.magic == MH_MAGIC || header.magic == MH_CIGAM)
 	{
-		ft_putendl("32bits");
+		// ft_putendl("32bits");
 		file_struct->size_of_header = sizeof(struct mach_header);
 		file_struct->is_64 = 0;
 	}
 	else if (header.magic == MH_MAGIC_64 || header.magic == MH_CIGAM_64)
 	{
-		ft_putendl("64bits");		
+		// ft_putendl("64bits");		
 		file_struct->size_of_header = sizeof(struct mach_header_64);
 		file_struct->is_64 = 1;
 	}
