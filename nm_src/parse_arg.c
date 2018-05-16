@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 13:01:35 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/10 14:25:05 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/16 19:07:41 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,12 @@ void	initmainstruct(t_mainstruct *file)
 	file->file = NULL;
 	file->size_of_header = 0;
 	file->nb_command = -1;
+	file->filename = NULL;
 }
 
-void	create_file(t_libft_chained_list **first, char *file)
+
+
+t_mainstruct	*create_file(t_libft_chained_list **first, char *file)
 {
 	t_mainstruct *file_struct;
 
@@ -68,15 +71,17 @@ void	create_file(t_libft_chained_list **first, char *file)
 		quit_clean();
 	initmainstruct(file_struct);
 	get_file(file_struct, file);
+	get_type(file_struct);
 	if (!file_struct->is_valid)
-		return ;
-	parse_header(file_struct);
-	add_back_maillon(first, file_struct);
+		return NULL;
+	return (file_struct);
+	// add_back_maillon(first, file_struct);
 }
 
 void	parse_arg(t_libft_chained_list **first, int argc, char **argv)
 {
 	int	i;
+	t_mainstruct *file_struct;
 
 	i = 1;
 	if (argc < 2)
@@ -85,7 +90,14 @@ void	parse_arg(t_libft_chained_list **first, int argc, char **argv)
 	{
 		while (i < argc)
 		{
-			create_file(first, argv[i]);
+			file_struct = create_file(first, argv[i]);
+			if (file_struct->file_type == 0)
+			{
+				parse_header(file_struct);
+				print_file(file_struct);
+			}
+			else if (file_struct->file_type == 1)
+				archive(file_struct, argv[i]);
 			i++;
 		}
 	}

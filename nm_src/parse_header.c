@@ -6,13 +6,13 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 19:37:30 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/11 12:36:03 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/16 17:15:41 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	get_header(t_mainstruct *file_struct)
+void	get_header_executable(t_mainstruct *file_struct)
 {
 	struct mach_header_64	header;
 
@@ -53,6 +53,8 @@ void	get_header(t_mainstruct *file_struct)
 	file_struct->file_type = header.filetype;
 }
 
+
+
 void	parse_header(t_mainstruct *file_struct)
 {
 	if (file_struct->file_length < (int)(sizeof(struct mach_header_64)))
@@ -61,10 +63,7 @@ void	parse_header(t_mainstruct *file_struct)
 		file_struct->error = "File too short";
 		return ;
 	}
-	else
-	{
-		get_header(file_struct);
-	}
+	get_header_executable(file_struct);
 	// 1/ test_header
 	
 }

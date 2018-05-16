@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 11:52:50 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/11 13:10:31 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/16 19:12:07 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	print_file(void *file_struct)
 	// show_symbols(&symbols, &sections, file_struct);
 }
 
+
+
 int	main(int argc, char **argv)
 {
 	t_libft_chained_list	*files;
@@ -60,5 +62,5 @@ int	main(int argc, char **argv)
 	files = NULL;
 	parse_arg(&files, argc, argv);
 	// ft_putendl("parsed");
-	simple_function_on_chained_list(&files, print_file);
+	// simple_function_on_chained_list(&files, print_file);
 }

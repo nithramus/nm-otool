@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 18:21:41 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/11 14:20:56 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/16 17:05:21 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ void	print_symbol(t_libft_chained_list **first, t_libft_chained_list *sym, void 
 	symbol = (t_symbol*)sym->data;
 	if (symbol->type & N_STAB)
 		return ;
-	if (symbol->value)
-		ft_printf("%016lx ", symbol->value);
-	else
+	if (!symbol->value && symbol->section == 0)
 		ft_printf("                 ");
+	else
+		ft_printf("%016lx ", symbol->value);
 	print_letter(symbol, params);
 	ft_putendl(symbol->name);
 	

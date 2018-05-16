@@ -5,12 +5,14 @@
 #include "../libft/ft_printf/ft_printf.h"
 #include "../libft_chained_list/libft_chained_list_src/libft_chained_list.h"
 
+#include <ar.h>
 #include <sys/mman.h>
 #include <mach-o/loader.h>
 #include <mach-o/nlist.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <stdlib.h>
+#include <mach-o/ranlib.h>
 
 typedef struct	s_mainstruct
 {
@@ -23,6 +25,7 @@ typedef struct	s_mainstruct
 	char		*file;
 	uint32_t	size_of_header;
 	uint32_t	nb_command;
+	char		*filename;
 }				t_mainstruct;
 
 typedef struct	s_symbol
@@ -47,6 +50,12 @@ typedef struct	s_search_section
 	t_libft_chained_list	**sections;
 }				t_search_section;
 
+typedef struct s_search
+{
+	void			*searched;
+	int				found;
+}				t_search;
+
 void			create_symbol_list(t_libft_chained_list **symbols, t_libft_chained_list **sections, t_mainstruct *file);
 void			parse_arg(t_libft_chained_list **first, int argc, char **argv);
 void			quit_clean();
@@ -54,7 +63,7 @@ void			parse_header(t_mainstruct *file_struct);
 int				reverse(void *ptr, size_t size, t_mainstruct *file);
 void			get_sections_64(t_libft_chained_list **sections, struct segment_command_64 *lc, int *j);
 void			show_symbols(t_libft_chained_list **symbols, t_libft_chained_list **sections, t_mainstruct *file_struct);
-void				order_symbol(t_libft_chained_list **symbols);
-
+void			order_symbol(t_libft_chained_list **symbols);
+void			get_type(t_mainstruct *file_struct);
 
 #endif

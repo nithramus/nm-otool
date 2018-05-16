@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   order_symbol.c                                     :+:      :+:    :+:   */
+/*   order_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/11 12:48:00 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/16 19:12:24 by bandre           ###   ########.fr       */
+/*   Created: 2018/05/16 19:13:01 by bandre            #+#    #+#             */
+/*   Updated: 2018/05/16 19:15:05 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	order(t_libft_chained_list **first, t_libft_chained_list *maillon, void *params)
+void	order_f(t_libft_chained_list **first, t_libft_chained_list *maillon, void *params)
 {
-	t_symbol	*sym1;
-	t_symbol	*sym2;
+	t_mainstruct	*file1;
+	t_mainstruct	*file2;
 	void		*tmp;
 	int			*yolo;
 
 	yolo = (int*)params;
 	if (!maillon->next)
 		return ;
-	sym1 = (t_symbol*)maillon->data;
-	sym2 = (t_symbol*)maillon->next->data;
-	if (ft_strcmp(sym1->name, sym2->name) > 0)
+	file1 = (t_mainstruct*)maillon->data;
+	file2 = (t_mainstruct*)maillon->next->data;
+	if (ft_strcmp(file1->filename, file2->filename) > 0)
 	{
 		*yolo = 1;
 		tmp = maillon->data;
@@ -34,7 +34,7 @@ void	order(t_libft_chained_list **first, t_libft_chained_list *maillon, void *pa
 
 }
 
-void		order_symbol(t_libft_chained_list **symbols)
+void		order_files(t_libft_chained_list **files)
 {
 	int		ended;
 
@@ -42,6 +42,6 @@ void		order_symbol(t_libft_chained_list **symbols)
 	while (ended == 1)
 	{
 		ended = 0;
-		function_on_chained_list(symbols, order, &ended);
+		function_on_chained_list(files, order_f, &ended);
 	}
 }
