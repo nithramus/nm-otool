@@ -6,14 +6,16 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 18:21:41 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/16 17:05:21 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/18 15:13:07 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-
-void	find_symbol(t_libft_chained_list **first, t_libft_chained_list *maillon, void *params)
+void	find_symbol(
+	t_libft_chained_list **first,
+	t_libft_chained_list *maillon,
+	void *params)
 {
 	t_search_section	*search;
 	t_section			*sect;
@@ -30,11 +32,10 @@ void	print_letter(t_symbol *symbol, t_libft_chained_list **section)
 {
 	t_search_section	search;
 	char				letter;
-	
+
 	search.type = NULL;
 	search.value = (int)symbol->section;
 	function_on_chained_list(section, find_symbol, &search);
-	// ft_printf("%s ", search.type);
 	if (!search.type)
 		letter = 'U';
 	else if (ft_strcmp(search.type, "__text") == 0)
@@ -52,7 +53,28 @@ void	print_letter(t_symbol *symbol, t_libft_chained_list **section)
 	ft_printf("%c ", letter);
 }
 
-void	print_symbol(t_libft_chained_list **first, t_libft_chained_list *sym, void *params)
+void	print_symbol_32(
+	t_libft_chained_list **first,
+	t_libft_chained_list *sym,
+	void *params)
+{
+	t_symbol			*symbol;
+
+	symbol = (t_symbol*)sym->data;
+	if (symbol->type & N_STAB)
+		return ;
+	if (!symbol->value && symbol->section == 0)
+		ft_printf("         ");
+	else
+		ft_printf("%08lx ", symbol->value);
+	print_letter(symbol, params);
+	ft_putendl(symbol->name);
+}
+
+void	print_symbol_64(
+	t_libft_chained_list **first,
+	t_libft_chained_list *sym,
+	void *params)
 {
 	t_symbol			*symbol;
 
@@ -65,7 +87,6 @@ void	print_symbol(t_libft_chained_list **first, t_libft_chained_list *sym, void 
 		ft_printf("%016lx ", symbol->value);
 	print_letter(symbol, params);
 	ft_putendl(symbol->name);
-	
 }
 
 void	show_symbols(
@@ -73,6 +94,8 @@ void	show_symbols(
 	t_libft_chained_list **sections,
 	t_mainstruct *file_struct)
 {
-	function_on_chained_list(symbols, print_symbol, sections);
-
+	if (file_struct->is_64)
+		function_on_chained_list(symbols, print_symbol_64, sections);
+	else
+		function_on_chained_list(symbols, print_symbol_32, sections);
 }

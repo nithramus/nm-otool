@@ -6,7 +6,7 @@
 #    By: bandre <bandre@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/07 16:17:12 by bandre            #+#    #+#              #
-#    Updated: 2018/05/16 19:25:52 by bandre           ###   ########.fr        #
+#    Updated: 2018/05/16 20:39:03 by bandre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = nm.o\
 	  get_type.o\
   	  archive.o\
 	  order_files.o\
+	  fat.o\
 
 
 CC = gcc -g

@@ -13,6 +13,8 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 #include <mach-o/ranlib.h>
+#include <mach-o/fat.h>
+
 
 typedef struct	s_mainstruct
 {
@@ -58,12 +60,18 @@ typedef struct s_search
 
 void			create_symbol_list(t_libft_chained_list **symbols, t_libft_chained_list **sections, t_mainstruct *file);
 void			parse_arg(t_libft_chained_list **first, int argc, char **argv);
-void			quit_clean();
+void			quit_clean(char *msg);
 void			parse_header(t_mainstruct *file_struct);
-int				reverse(void *ptr, size_t size, t_mainstruct *file);
+uint32_t		reverse_32(void *ptr, t_mainstruct *file);
+uint64_t		reverse_64(void *ptr, t_mainstruct *file_struct);
+
 void			get_sections_64(t_libft_chained_list **sections, struct segment_command_64 *lc, int *j);
 void			show_symbols(t_libft_chained_list **symbols, t_libft_chained_list **sections, t_mainstruct *file_struct);
 void			order_symbol(t_libft_chained_list **symbols);
 void			get_type(t_mainstruct *file_struct);
+void			fat(t_mainstruct *file_struct, char *file);
+void			get_sections_32(t_libft_chained_list **sections, struct segment_command *lc, int *j);
+t_mainstruct	*create_file(char *file);
+
 
 #endif

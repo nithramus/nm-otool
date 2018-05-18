@@ -6,13 +6,16 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 12:48:00 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/16 19:12:24 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/17 14:48:32 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	order(t_libft_chained_list **first, t_libft_chained_list *maillon, void *params)
+void	order(
+	t_libft_chained_list **first,
+	t_libft_chained_list *maillon,
+	void *params)
 {
 	t_symbol	*sym1;
 	t_symbol	*sym2;
@@ -31,10 +34,9 @@ void	order(t_libft_chained_list **first, t_libft_chained_list *maillon, void *pa
 		maillon->data = maillon->next->data;
 		maillon->next->data = tmp;
 	}
-
 }
 
-void		order_symbol(t_libft_chained_list **symbols)
+void	order_symbol(t_libft_chained_list **symbols)
 {
 	int		ended;
 

@@ -6,14 +6,14 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 19:17:28 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/10 14:08:27 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/17 13:04:52 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	quit_clean()
+void	quit_clean(char *msg)
 {
-	ft_putendl("Malloc fail");
+	ft_putendl(msg);
 	exit(0);
 }
