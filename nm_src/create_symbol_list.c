@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 15:08:39 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/18 16:34:19 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/18 17:27:06 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	get_all_symbols(
 {
 	void			*stringable;
 	struct nlist_64	*symtab;
-	int				i;
+	uint32_t		i;
 	t_symbol		*symbol;
 
 	i = 0;

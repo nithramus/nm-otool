@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 20:32:16 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/18 16:55:22 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/18 17:35:17 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ void	create_filestruct_from_fat(struct fat_arch *fat, void *file_ptr, t_mainstru
 	file_struct = malloc(sizeof(t_mainstruct));
 	initmainstruct(file_struct);
 	file_struct->file_length = reverse_32(&fat->size, main_file);
-	ft_printf("%u", file_struct->file_length);
+	// ft_printf("%u", file_struct->file_length);
 	file_struct->file = file_ptr + reverse_32(&fat->offset, main_file);
-	ft_putendl("coucou");
+	// ft_putendl("coucou");
 	parse_header(file_struct);
 	print_file(file_struct);
 
@@ -79,10 +79,22 @@ void	fat(t_mainstruct *file_struct, char *file)
 		ft_putendl(file_struct->error);
 		return ;
 	}
-	while (i < 2)
+	while (i < file_struct->nb_command)
 	{
-		ft_printf("%u", file_struct->nb_command);
-		ft_putendl("coucou");
+		if (reverse_32(file_struct->file + offset, file_struct) == CPU_TYPE_X86_64)
+		{
+			create_filestruct_from_fat((struct fat_arch *)(file_struct->file + offset), file_struct->file, file_struct);
+			return ;
+		}
+		offset += file_struct->size_of_header;
+		i++;
+	}
+	i = 0;
+	offset = sizeof(struct fat_header);
+	while (i < file_struct->nb_command)
+	{
+		// ft_printf("%u", file_struct->nb_command);
+		// ft_putendl("coucou");
 		create_filestruct_from_fat((struct fat_arch *)(file_struct->file + offset), file_struct->file, file_struct);
 
 		offset += file_struct->size_of_header;

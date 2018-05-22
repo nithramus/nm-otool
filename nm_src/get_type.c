@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 11:30:15 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/17 14:40:31 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/18 17:09:23 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	get_type(t_mainstruct *file_struct)
 		else if (FAT_MAGIC == header || FAT_MAGIC_64 == header
 			|| FAT_CIGAM == header || FAT_CIGAM_64 == header)
 		{
-			ft_putendl("Fat");
 			file_struct->file_type = 2;
 		}
 		else
