@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 19:13:01 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/17 12:59:33 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/22 14:52:51 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,21 @@ void	order_f(
 	t_mainstruct	*file2;
 	void			*tmp;
 	int				*yolo;
+	int				*ended;
 
 	yolo = (int*)params;
+	ended = (int*)params;
 	if (!maillon->next)
 		return ;
 	file1 = (t_mainstruct*)maillon->data;
 	file2 = (t_mainstruct*)maillon->next->data;
-	if (ft_strcmp(file1->filename, file2->filename) > 0)
+	if (file1->file > file2->file)
 	{
 		*yolo = 1;
 		tmp = maillon->data;
 		maillon->data = maillon->next->data;
 		maillon->next->data = tmp;
+		*ended = 1;
 	}
 }
 

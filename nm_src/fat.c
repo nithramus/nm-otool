@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 20:32:16 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/18 17:35:17 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/22 16:52:08 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,24 @@ void	set_fat_type(t_mainstruct *file_struct, uint32_t magic)
 	file_struct->file_type = 2;
 }
 
+uint64_t	reverse(void *ptr, t_mainstruct *file_struct)
+{
+	if (file_struct->is_64)
+		return (reverse_64(ptr, file_struct));
+	else
+		return (uint64_t)(reverse_32(ptr, file_struct));
+}
+
 void	create_filestruct_from_fat(struct fat_arch *fat, void *file_ptr, t_mainstruct *main_file)
 {
 	t_mainstruct		*file_struct;
 
 	file_struct = malloc(sizeof(t_mainstruct));
 	initmainstruct(file_struct);
-	file_struct->file_length = reverse_32(&fat->size, main_file);
-	// ft_printf("%u", file_struct->file_length);
-	file_struct->file = file_ptr + reverse_32(&fat->offset, main_file);
-	// ft_putendl("coucou");
+	file_struct->file_length = reverse(&fat->size, main_file);
+	file_struct->file = file_ptr + reverse(&fat->offset, main_file);
 	parse_header(file_struct);
 	print_file(file_struct);
-
-
 }
 
 void	fat(t_mainstruct *file_struct, char *file)
@@ -81,7 +85,7 @@ void	fat(t_mainstruct *file_struct, char *file)
 	}
 	while (i < file_struct->nb_command)
 	{
-		if (reverse_32(file_struct->file + offset, file_struct) == CPU_TYPE_X86_64)
+		if (reverse(file_struct->file + offset, file_struct) == CPU_TYPE_X86_64)
 		{
 			create_filestruct_from_fat((struct fat_arch *)(file_struct->file + offset), file_struct->file, file_struct);
 			return ;

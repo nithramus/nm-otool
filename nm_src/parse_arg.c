@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 13:01:35 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/18 12:47:26 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/22 16:30:02 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void			get_file(t_mainstruct *file_struct, char *file_name)
 		file_struct->error = "Stat failed";
 		return ;
 	}
-	if (!(file = (char*)malloc(buff.st_size + 1)))
+	if (!(file = (char*)malloc(buff.st_size + 2)))
 	{
 		file_struct->is_valid = -1;
 		file_struct->error = "Malloc failed";
@@ -43,6 +43,7 @@ void			get_file(t_mainstruct *file_struct, char *file_name)
 		return ;
 	}
 	file_struct->file = file;
+	file_struct->file[buff.st_size] = '\0';
 	file_struct->file_length = buff.st_size;
 }
 

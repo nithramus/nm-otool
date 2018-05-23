@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 18:21:41 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/18 15:13:07 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/22 10:58:11 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,12 @@ void	print_letter(t_symbol *symbol, t_libft_chained_list **section)
 	search.value = (int)symbol->section;
 	function_on_chained_list(section, find_symbol, &search);
 	if (!search.type)
-		letter = 'U';
+	{
+		if ((symbol->type & N_INDR) == N_INDR)
+			letter = 'I';
+		else
+			letter = 'U';
+	}
 	else if (ft_strcmp(search.type, "__text") == 0)
 		letter = 'T';
 	else if (ft_strcmp(search.type, "__bss") == 0)

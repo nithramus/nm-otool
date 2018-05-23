@@ -70,6 +70,7 @@ void			show_symbols(t_libft_chained_list **symbols, t_libft_chained_list **secti
 void			order_symbol(t_libft_chained_list **symbols);
 void			get_type(t_mainstruct *file_struct);
 void			fat(t_mainstruct *file_struct, char *file);
+
 void			get_sections_32(t_libft_chained_list **sections, struct segment_command *lc, int *j);
 t_mainstruct	*create_file(char *file);
 

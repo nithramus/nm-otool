@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 11:52:50 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/18 16:22:28 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/22 16:17:31 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,21 @@ void	print_file(void *file_struct)
 	show_symbols(&symbols, &sections, file_struct);
 }
 
+void	parse_file(t_mainstruct *file_struct, char *filename)
+{
+	if (file_struct->is_valid == 0)
+		ft_putendl("erroryolo");
+	else if (file_struct->file_type == 0)
+	{
+		parse_header(file_struct);
+		print_file(file_struct);
+	}
+	else if (file_struct->file_type == 1)
+		archive(file_struct, filename);
+	else if (file_struct->file_type == 2)
+		fat(file_struct, filename);
+}
+
 int		main(int argc, char **argv)
 {
 	int				i;
@@ -60,24 +75,16 @@ int		main(int argc, char **argv)
 
 	i = 1;
 	if (argc < 2)
-		create_file("a.out");
+	{
+		file_struct = create_file("a.out");
+		parse_file(file_struct, "a.out");
+	}
 	else
 	{
 		while (i < argc)
 		{
 			file_struct = create_file(argv[i]);
-			if (file_struct->is_valid == 0)
-				ft_putendl("erroryolo");
-				// ft_putendl(file_struct->error);
-			else if (file_struct->file_type == 0)
-			{
-				parse_header(file_struct);
-				print_file(file_struct);
-			}
-			else if (file_struct->file_type == 1)
-				archive(file_struct, argv[i]);
-			else if (file_struct->file_type == 2)
-				fat(file_struct, argv[i]);
+			parse_file(file_struct, argv[i]);
 			i++;
 		}
 	}

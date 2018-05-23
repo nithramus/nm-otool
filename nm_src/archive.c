@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 11:50:49 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/18 12:30:03 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/22 17:08:07 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,27 @@ int		header_name(void *ptr, char **name)
 {
 	struct ar_hdr	*header;
 	int				size;
+	char			*pos;
 
 	size = sizeof(struct ar_hdr);
 	header = (struct ar_hdr*)ptr;
 	if (ft_strncmp(header->ar_name, "#1/", 3) == 0)
 	{
+		if (!(*name = malloc(ft_atoi(header->ar_name + 3))))
+			quit_clean("malloc failed");
 		*name = ptr + size;
+		ft_strcpy(*name, ptr + size);
 		size += ft_atoi(header->ar_name + 3);
 	}
 	else
 	{
-		*name = header->ar_name;
+		if (!(*name = malloc(20)))
+			quit_clean("malloc failed");
+		ft_strncpy(*name, header->ar_name, 16);
+		(*name)[16] = '\0';
+		pos = ft_strrchr(*name, 20);
+		if (pos)
+			*pos = '\0';
 	}
 	return (size);
 }

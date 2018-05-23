@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 19:37:30 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/18 16:39:46 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/22 17:14:06 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	get_header_executable(t_mainstruct *file_struct)
 
 void	parse_header(t_mainstruct *file_struct)
 {
+	ft_putendl("coucu");
 	if (file_struct->file_length < (int)(sizeof(struct mach_header_64)))
 	{
 		file_struct->is_valid = 0;
