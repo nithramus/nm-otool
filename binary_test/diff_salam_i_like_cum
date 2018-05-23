@@ -1,5 +1,5 @@
 1,225c1,225
-< 0000010000000000 u _length
+< 0000000000000000 u _length
 < 0000000000000000 u bad string index
 < 0000000000000000 u bad string index
 < 0000000000000000 u bad string index
@@ -56,114 +56,114 @@
 < 0000000000000001 t bad string index
 < 0000000000000001 t bad string index
 < 0000000000000001 t bad string index
-< 0000005a832f4700 u bad string index
-< 0000005a832f4700 u bad string index
-< 0000005a832f4700 u bad string index
-< 0000005a832f4700 u bad string index
-< 0000005a832f4700 u bad string index
-< 0000005a832f4700 u bad string index
-< 0000005a832f4700 u bad string index
-< 0000005a832f4700 u bad string index
-< 0000005a832f4800 u bad string index
-< 0000005a832f4800 u bad string index
-< 0000005a832f4900 u bad string index
-< 0000005a832f4900 u bad string index
-< 0000005a832f4900 u bad string index
-< 0000005a832f4900 u bad string index
-< 0000005a832f4900 u bad string index
-< 00000100000d0000 u bad string index
-< 00000100000d0000 u bad string index
-< 00000100000d7000 u bad string index
-< 00000100000d7000 u bad string index
-< 00000100000e2000 u bad string index
-< 00000100000e2000 u bad string index
-< 00000100000f1000 u bad string index
-< 00000100000f1000 u bad string index
-< 00000100000f4000 u bad string index
-< 00000100000f4000 u bad string index
-< 00000100000f8000 u bad string index
-< 00000100000f8000 u bad string index
-< 0000010000102000 u bad string index
-< 0000010000102000 u bad string index
-< 0000010000106000 u bad string index
-< 0000010000106000 u bad string index
-< 0000010000111000 u bad string index
-< 0000010000111000 u bad string index
-< 000001000012a000 u bad string index
-< 000001000012a000 u bad string index
-< 000001000012d000 u bad string index
-< 000001000012d000 u bad string index
-< 0000010000134000 u bad string index
-< 0000010000134000 u bad string index
-< 0000010000142000 u bad string index
-< 0000010000142000 u bad string index
-< 0000010000145000 u bad string index
-< 0000010000145000 u bad string index
-< 000001000014a000 u bad string index
-< 000001000014a000 u bad string index
-< 000001000014f000 u bad string index
-< 000001000015e000 u bad string index
-< 0000010000170000 u bad string index
-< 0000010000181000 u bad string index
-< 0000010000199000 u bad string index
-< 00000100001a9000 u bad string index
-< 00000100001c4000 u bad string index
-< 00000100001e4000 u bad string index
-< 00000100001fe000 u bad string index
-< 000001000020f000 u bad string index
-< 0000010000227000 u bad string index
-< 0000010000247000 u bad string index
-< 0000010000248000 u bad string index
-< 000001000024e000 u bad string index
-< 0000010000258000 u bad string index
-< 000001000025f000 u bad string index
-< 000001000026c000 u bad string index
-< 0000010000276000 u bad string index
-< 000001000027f000 u bad string index
-< 0000010000284000 u bad string index
-< 0000010000291000 u bad string index
-< 00000100002ad000 u bad string index
-< 00000100002bc000 u bad string index
-< 00000100002d8000 u bad string index
-< 00000100002e6000 u bad string index
-< 00000100002fe000 u bad string index
-< 0000010000305000 u bad string index
-< 0000010000312000 u bad string index
-< 000001000031f000 u bad string index
-< 0000010000333000 u bad string index
-< 000001000033b000 u bad string index
-< 0000010000348000 u bad string index
-< 0000010000355000 u bad string index
-< 0000010000358000 u bad string index
-< 000001000036d000 u bad string index
-< 0000010000392000 u bad string index
-< 0000010000396000 u bad string index
-< 00000100003a6000 u bad string index
-< 00000100003ac000 u bad string index
-< 00000100003b6000 u bad string index
-< 00000100003ca000 u bad string index
-< 00000100003dc000 u bad string index
-< 00000100003f0000 u bad string index
-< 00000100003fd000 u bad string index
-< 0000010000414000 u bad string index
-< 0000010000418000 u bad string index
-< 0000010000420000 u bad string index
-< 0000010000437000 u bad string index
-< 0000010000443000 u bad string index
-< 000001000044f000 u bad string index
-< 0000010000453000 u bad string index
-< 0000010000457000 u bad string index
-< 000001000045c000 u bad string index
-< 0000010000467000 u bad string index
-< 0000010000484000 u bad string index
-< 0000010000499000 u bad string index
-< 00000100004a8000 u bad string index
-< 00000100004bd000 u bad string index
-< 00000100004cd000 u bad string index
-< 00000100004dc000 u bad string index
-< 00000100004e1000 u bad string index
-< 0000010000506000 u bad string index
-< 0000010000506800 u bad string index
+< 00000000000d0000 u bad string index
+< 00000000000d0000 u bad string index
+< 00000000000d7000 u bad string index
+< 00000000000d7000 u bad string index
+< 00000000000e2000 u bad string index
+< 00000000000e2000 u bad string index
+< 00000000000f1000 u bad string index
+< 00000000000f1000 u bad string index
+< 00000000000f4000 u bad string index
+< 00000000000f4000 u bad string index
+< 00000000000f8000 u bad string index
+< 00000000000f8000 u bad string index
+< 0000000000102000 u bad string index
+< 0000000000102000 u bad string index
+< 0000000000106000 u bad string index
+< 0000000000106000 u bad string index
+< 0000000000111000 u bad string index
+< 0000000000111000 u bad string index
+< 000000000012a000 u bad string index
+< 000000000012a000 u bad string index
+< 000000000012d000 u bad string index
+< 000000000012d000 u bad string index
+< 0000000000134000 u bad string index
+< 0000000000134000 u bad string index
+< 0000000000142000 u bad string index
+< 0000000000142000 u bad string index
+< 0000000000145000 u bad string index
+< 0000000000145000 u bad string index
+< 000000000014a000 u bad string index
+< 000000000014a000 u bad string index
+< 000000000014f000 u bad string index
+< 000000000015e000 u bad string index
+< 0000000000170000 u bad string index
+< 0000000000181000 u bad string index
+< 0000000000199000 u bad string index
+< 00000000001a9000 u bad string index
+< 00000000001c4000 u bad string index
+< 00000000001e4000 u bad string index
+< 00000000001fe000 u bad string index
+< 000000000020f000 u bad string index
+< 0000000000227000 u bad string index
+< 0000000000247000 u bad string index
+< 0000000000248000 u bad string index
+< 000000000024e000 u bad string index
+< 0000000000258000 u bad string index
+< 000000000025f000 u bad string index
+< 000000000026c000 u bad string index
+< 0000000000276000 u bad string index
+< 000000000027f000 u bad string index
+< 0000000000284000 u bad string index
+< 0000000000291000 u bad string index
+< 00000000002ad000 u bad string index
+< 00000000002bc000 u bad string index
+< 00000000002d8000 u bad string index
+< 00000000002e6000 u bad string index
+< 00000000002fe000 u bad string index
+< 0000000000305000 u bad string index
+< 0000000000312000 u bad string index
+< 000000000031f000 u bad string index
+< 0000000000333000 u bad string index
+< 000000000033b000 u bad string index
+< 0000000000348000 u bad string index
+< 0000000000355000 u bad string index
+< 0000000000358000 u bad string index
+< 000000000036d000 u bad string index
+< 0000000000392000 u bad string index
+< 0000000000396000 u bad string index
+< 00000000003a6000 u bad string index
+< 00000000003ac000 u bad string index
+< 00000000003b6000 u bad string index
+< 00000000003ca000 u bad string index
+< 00000000003dc000 u bad string index
+< 00000000003f0000 u bad string index
+< 00000000003fd000 u bad string index
+< 0000000000414000 u bad string index
+< 0000000000418000 u bad string index
+< 0000000000420000 u bad string index
+< 0000000000437000 u bad string index
+< 0000000000443000 u bad string index
+< 000000000044f000 u bad string index
+< 0000000000453000 u bad string index
+< 0000000000457000 u bad string index
+< 000000000045c000 u bad string index
+< 0000000000467000 u bad string index
+< 0000000000484000 u bad string index
+< 0000000000499000 u bad string index
+< 00000000004a8000 u bad string index
+< 00000000004bd000 u bad string index
+< 00000000004cd000 u bad string index
+< 00000000004dc000 u bad string index
+< 00000000004e1000 u bad string index
+< 0000000000506000 u bad string index
+< 0000000000506800 u bad string index
+< ffffffff832f4700 u bad string index
+< ffffffff832f4700 u bad string index
+< ffffffff832f4700 u bad string index
+< ffffffff832f4700 u bad string index
+< ffffffff832f4700 u bad string index
+< ffffffff832f4700 u bad string index
+< ffffffff832f4700 u bad string index
+< ffffffff832f4700 u bad string index
+< ffffffff832f4800 u bad string index
+< ffffffff832f4800 u bad string index
+< ffffffff832f4900 u bad string index
+< ffffffff832f4900 u bad string index
+< ffffffff832f4900 u bad string index
+< ffffffff832f4900 u bad string index
+< ffffffff832f4900 u bad string index
 < 0000000000000000 u r
 < 0000000000000000 u r
 < 0000000000000000 u r
@@ -209,21 +209,21 @@
 < 000000000000e400 u r
 < 0000000000018d00 u r
 < 0000000000018d00 u r
-< 00000100000d0000 u r
-< 00000100000d7000 u r
-< 00000100000e2000 u r
-< 00000100000f1000 u r
-< 00000100000f4000 u r
-< 00000100000f8000 u r
-< 0000010000102000 u r
-< 0000010000106000 u r
-< 0000010000111000 u r
-< 000001000012a000 u r
-< 000001000012d000 u r
-< 0000010000134000 u r
-< 0000010000142000 u r
-< 0000010000145000 u r
-< 000001000014a000 u r
+< 00000000000d0000 u r
+< 00000000000d7000 u r
+< 00000000000e2000 u r
+< 00000000000f1000 u r
+< 00000000000f4000 u r
+< 00000000000f8000 u r
+< 0000000000102000 u r
+< 0000000000106000 u r
+< 0000000000111000 u r
+< 000000000012a000 u r
+< 000000000012d000 u r
+< 0000000000134000 u r
+< 0000000000142000 u r
+< 0000000000145000 u r
+< 000000000014a000 u r
 ---
 > 0000010000000000 ? _length
 > 0000000000000000 ? bad string index

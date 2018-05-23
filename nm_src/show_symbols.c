@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 18:21:41 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/22 10:58:11 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/23 20:23:20 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	print_letter(t_symbol *symbol, t_libft_chained_list **section)
 	{
 		if ((symbol->type & N_INDR) == N_INDR)
 			letter = 'I';
+		else if ((symbol->type & N_ABS) == N_ABS)		
+			letter = 'A';
 		else
 			letter = 'U';
 	}
@@ -67,7 +69,7 @@ void	print_symbol_32(
 
 	symbol = (t_symbol*)sym->data;
 	if (symbol->type & N_STAB)
-		return ;
+		return ;	
 	if (!symbol->value && symbol->section == 0)
 		ft_printf("         ");
 	else

@@ -65,13 +65,21 @@ void			parse_header(t_mainstruct *file_struct);
 uint32_t		reverse_32(void *ptr, t_mainstruct *file);
 uint64_t		reverse_64(void *ptr, t_mainstruct *file_struct);
 
-void			get_sections_64(t_libft_chained_list **sections, struct segment_command_64 *lc, int *j);
 void			show_symbols(t_libft_chained_list **symbols, t_libft_chained_list **sections, t_mainstruct *file_struct);
 void			order_symbol(t_libft_chained_list **symbols);
 void			get_type(t_mainstruct *file_struct);
 void			fat(t_mainstruct *file_struct, char *file);
 
-void			get_sections_32(t_libft_chained_list **sections, struct segment_command *lc, int *j);
+void			get_sections_32(
+	t_libft_chained_list **sections,
+	struct segment_command *lc,
+	int *j,
+	t_mainstruct *file_struct);
+void	get_sections_64(
+	t_libft_chained_list **sections,
+	struct segment_command_64 *lc,
+	int *j,
+	t_mainstruct *file_struct);
 t_mainstruct	*create_file(char *file);
 
 

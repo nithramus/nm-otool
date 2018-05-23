@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 20:32:16 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/22 16:52:08 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/23 20:56:02 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ void	create_filestruct_from_fat(struct fat_arch *fat, void *file_ptr, t_mainstru
 	t_mainstruct		*file_struct;
 
 	file_struct = malloc(sizeof(t_mainstruct));
+	if (!file_struct)
+		quit_clean("malloc error");
+	NXGetArchInfoFromCpuType
 	initmainstruct(file_struct);
 	file_struct->file_length = reverse(&fat->size, main_file);
 	file_struct->file = file_ptr + reverse(&fat->offset, main_file);
@@ -97,13 +100,9 @@ void	fat(t_mainstruct *file_struct, char *file)
 	offset = sizeof(struct fat_header);
 	while (i < file_struct->nb_command)
 	{
-		// ft_printf("%u", file_struct->nb_command);
-		// ft_putendl("coucou");
 		create_filestruct_from_fat((struct fat_arch *)(file_struct->file + offset), file_struct->file, file_struct);
 
 		offset += file_struct->size_of_header;
 		i++;
-		// check size
-
 	}
 }

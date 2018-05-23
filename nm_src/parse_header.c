@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 19:37:30 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/22 17:14:06 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/23 18:53:29 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,12 @@ void	get_header_executable(t_mainstruct *file_struct)
 		file_struct->error = "Invalid header2";
 		return ;
 	}
-	file_struct->nb_command = header.ncmds;
-	file_struct->file_type = header.filetype;
+	file_struct->nb_command = reverse_32(&header.ncmds, file_struct);
+	file_struct->file_type = reverse_32(&header.filetype, file_struct);
 }
 
 void	parse_header(t_mainstruct *file_struct)
 {
-	ft_putendl("coucu");
 	if (file_struct->file_length < (int)(sizeof(struct mach_header_64)))
 	{
 		file_struct->is_valid = 0;

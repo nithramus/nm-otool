@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 16:54:58 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/17 12:52:04 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/23 19:29:32 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	get_sections_32(
 	t_libft_chained_list **sections,
 	struct segment_command *lc,
-	int *j)
+	int *j,
+	t_mainstruct *file_struct)
 {
 	int				i;
 	struct section	*sect;
@@ -23,7 +24,7 @@ void	get_sections_32(
 
 	i = 0;
 	sect = (void*)lc + sizeof(struct segment_command);
-	while (i < (int)lc->nsects)
+	while (i < (int)reverse_32(&lc->nsects, file_struct))
 	{
 		section = malloc(sizeof(t_section));
 		if (!section)
@@ -41,7 +42,8 @@ void	get_sections_32(
 void	get_sections_64(
 	t_libft_chained_list **sections,
 	struct segment_command_64 *lc,
-	int *j)
+	int *j,
+	t_mainstruct *file_struct)
 {
 	int					i;
 	struct section_64	*sect;
@@ -49,7 +51,7 @@ void	get_sections_64(
 
 	i = 0;
 	sect = (void*)lc + sizeof(struct segment_command_64);
-	while (i < (int)lc->nsects)
+	while (i < (int)reverse_32(&lc->nsects, file_struct))
 	{
 		section = malloc(sizeof(t_section));
 		if (!section)
