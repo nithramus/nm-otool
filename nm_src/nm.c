@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 11:52:50 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/23 20:03:39 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 14:44:11 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	print_file(void *file_struct)
 void	parse_file(t_mainstruct *file_struct, char *filename)
 {
 	if (file_struct->is_valid == 0)
-		ft_putendl("erroryolo");
+		ft_putendl(file_struct->error);
 	else if (file_struct->file_type == 0)
 	{
 		parse_header(file_struct);

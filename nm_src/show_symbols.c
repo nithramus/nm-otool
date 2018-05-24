@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 18:21:41 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/23 20:23:20 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 14:09:13 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	print_symbol_64(
 	if (!symbol->value && symbol->section == 0)
 		ft_printf("                 ");
 	else
-		ft_printf("%016lx ", symbol->value);
+		ft_printf("%016llx ", symbol->value);
 	print_letter(symbol, params);
 	ft_putendl(symbol->name);
 }

@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 13:01:35 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/23 18:57:38 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 14:47:59 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,21 @@ void			get_file(t_mainstruct *file_struct, char *file_name)
 	if ((fd = open(file_name, O_RDONLY)) <= 0)
 	{
 		file_struct->is_valid = -1;
-		file_struct->error = "Unable to open file";
+		file_struct->error = "Invalid file";
 		return ;
 	}
 	if (fstat(fd, &buff) < -1)
 	{
 		file_struct->is_valid = -1;
-		file_struct->error = "Stat failed";
+		file_struct->error = "Invalid file";
 		return ;
 	}
 	if (!(file = (char*)malloc(buff.st_size + 2)))
-	{
-		file_struct->is_valid = -1;
-		file_struct->error = "Malloc failed";
-		return ;
-	}
+		quit_clean("Malloc failed");
 	if (read(fd, file, buff.st_size) < buff.st_size)
 	{
 		file_struct->is_valid = -1;
-		file_struct->error = "Read fail";
+		file_struct->error = "Invalid file";
 		return ;
 	}
 	file_struct->file = file;

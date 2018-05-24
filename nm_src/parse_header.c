@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 19:37:30 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/23 18:53:29 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 14:49:11 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	get_header_executable(t_mainstruct *file_struct)
 {
 	struct mach_header_64	header;
+	const NXArchInfo *info;	
 
 	header = *(struct mach_header_64*)file_struct->file;
 	if (header.magic == MH_MAGIC || header.magic == MH_MAGIC_64)
@@ -24,7 +25,7 @@ void	get_header_executable(t_mainstruct *file_struct)
 	else
 	{
 		file_struct->is_valid = 0;
-		file_struct->error = "Invalid header1";
+		file_struct->error = "Invalid file";
 		return ;
 	}
 	if (header.magic == MH_MAGIC || header.magic == MH_CIGAM)
@@ -40,11 +41,13 @@ void	get_header_executable(t_mainstruct *file_struct)
 	else
 	{
 		file_struct->is_valid = 0;
-		file_struct->error = "Invalid header2";
+		file_struct->error = "Invalid file";
 		return ;
 	}
 	file_struct->nb_command = reverse_32(&header.ncmds, file_struct);
-	file_struct->file_type = reverse_32(&header.filetype, file_struct);
+	info = NXGetArchInfoFromCpuType(reverse_32(&header.cputype, file_struct), reverse_32(&header.cpusubtype, file_struct));
+	file_struct->architecture = info->name;
+	// file_struct->file_type = reverse_32(&header.filetype, file_struct);
 }
 
 void	parse_header(t_mainstruct *file_struct)
@@ -52,8 +55,7 @@ void	parse_header(t_mainstruct *file_struct)
 	if (file_struct->file_length < (int)(sizeof(struct mach_header_64)))
 	{
 		file_struct->is_valid = 0;
-		file_struct->error = "File too short4";
-		ft_putendl(file_struct->error);
+		file_struct->error = "Invalid file";
 		return ;
 	}
 	get_header_executable(file_struct);

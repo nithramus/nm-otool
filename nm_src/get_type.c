@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 11:30:15 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/18 17:09:23 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 14:47:04 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	get_type(t_mainstruct *file_struct)
 	if (file_struct->file_length < (int)(sizeof(struct mach_header_64)))
 	{
 		file_struct->is_valid = 0;
-		file_struct->error = "File too short2";
+		file_struct->error = "Invalid file";
 		return ;
 	}
 	else

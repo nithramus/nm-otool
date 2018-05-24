@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <mach-o/ranlib.h>
 #include <mach-o/fat.h>
+#include <mach-o/arch.h>
 
 
 typedef struct	s_mainstruct
@@ -28,6 +29,7 @@ typedef struct	s_mainstruct
 	uint32_t	size_of_header;
 	uint32_t	nb_command;
 	char		*filename;
+	char		*architecture;
 }				t_mainstruct;
 
 typedef struct	s_symbol
@@ -81,6 +83,8 @@ void	get_sections_64(
 	int *j,
 	t_mainstruct *file_struct);
 t_mainstruct	*create_file(char *file);
+uint64_t		reverse(void *ptr, t_mainstruct *file_struct);
+
 
 
 #endif

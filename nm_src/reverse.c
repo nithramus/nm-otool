@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 13:20:04 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/23 19:51:19 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 14:12:50 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,13 @@ uint64_t	reverse_64(void *ptr, t_mainstruct *file_struct)
 	}
 	else
 		value = *(uint64_t*)ptr;
-	// size += 1 - 1;
-	// file += 1 - 1;
 	return (value);
+}
+
+uint64_t	reverse(void *ptr, t_mainstruct *file_struct)
+{
+	if (file_struct->is_64)
+		return (reverse_64(ptr, file_struct));
+	else
+		return (uint64_t)(reverse_32(ptr, file_struct));
 }

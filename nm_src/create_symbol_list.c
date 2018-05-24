@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 15:08:39 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/23 20:01:18 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 14:46:31 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	create_symbol_list(
 		if (file_struct->file_length + (void*)file_struct->file <= (void*)lc)
 		{
 			file_struct->is_valid = 0;
-			file_struct->error = "File to short1";
+			file_struct->error = "Invalid file";
 			return ;
 		}
 		if (reverse_32(&lc->cmd, file_struct) == LC_SYMTAB)
