@@ -84,6 +84,13 @@ void	get_sections_64(
 	t_mainstruct *file_struct);
 t_mainstruct	*create_file(char *file);
 uint64_t		reverse(void *ptr, t_mainstruct *file_struct);
+void			archive(t_mainstruct *file_struct, char *file);
+void			print_file(void *file_struct);
+int				header_name(void *ptr, char **name);
+void			initmainstruct(t_mainstruct *file);
+void			order_files(t_libft_chained_list **files);
+
+
 
 
 

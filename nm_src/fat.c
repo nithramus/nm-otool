@@ -6,13 +6,13 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 20:32:16 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 17:22:56 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 18:48:56 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	set_fat_type(t_mainstruct *file_struct, uint32_t magic)
+void	set_fat_type(t_mainstruct *file_struct)
 {
 	struct fat_header	header;
 
@@ -75,7 +75,7 @@ void	fat(t_mainstruct *file_struct, char *file)
 	i = 0;
 	offset = sizeof(struct fat_header);
 	header = (struct fat_header*)file_struct->file;
-	set_fat_type(file_struct, header->magic);
+	set_fat_type(file_struct);
 	if (file_struct->is_valid == 0)
 	{
 		ft_putendl(file_struct->error);

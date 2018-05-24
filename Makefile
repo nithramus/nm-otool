@@ -6,7 +6,7 @@
 #    By: bandre <bandre@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/07 16:17:12 by bandre            #+#    #+#              #
-#    Updated: 2018/05/16 20:39:03 by bandre           ###   ########.fr        #
+#    Updated: 2018/05/24 18:43:34 by bandre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ SRC = nm.o\
 
 CC = gcc -g
 
-FLAG = -Wall -Wextra -O #-Werror
+FLAG = -Wall -Wextra -O -Werror
 
 LIB = libft/libftprintf.a libft_chained_list/libft_chained_list.a
 

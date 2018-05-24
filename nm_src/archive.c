@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 11:50:49 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 15:57:16 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 20:10:38 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ void	show_all_files(
 
 void	create_file_from_archive(
 	struct ar_hdr *ar,
-	t_libft_chained_list **first,
-	char *file)
+	t_libft_chained_list **first)
 {
 	t_search		search;
 	t_mainstruct	*file_struct;
 	char			*name;
 
 	search.searched = ((void*)ar) + header_name(ar, &name);
+	free(name);
 	search.found = 0;
 	function_on_chained_list(first, file_done, (void*)&search);
 	if (search.found == 1)
@@ -73,7 +73,7 @@ int		header_name(void *ptr, char **name)
 	{
 		if (!(*name = malloc(ft_atoi(header->ar_name + 3))))
 			quit_clean("malloc failed");
-		*name = ptr + size;
+		
 		ft_strcpy(*name, ptr + size);
 		size += ft_atoi(header->ar_name + 3);
 	}
@@ -90,6 +90,15 @@ int		header_name(void *ptr, char **name)
 	return (size);
 }
 
+void	delete_archive(void *file)
+{
+	t_mainstruct *file_struct;
+
+	file_struct = (t_mainstruct*)file;
+	free(file_struct->filename);
+	free(file);
+}
+
 void	archive(t_mainstruct *file_struct, char *file)
 {
 	t_libft_chained_list	*file_list;
@@ -101,16 +110,18 @@ void	archive(t_mainstruct *file_struct, char *file)
 	offset = 8;
 	file_list = NULL;
 	offset += header_name(file_struct->file + offset, &name);
+	free(name);
 	size = *(int*)(file_struct->file + offset);
 	offset += sizeof(int);
 	while (size > 0)
 	{
 		ran = (struct ranlib*)((void*)file_struct->file + offset);
 		create_file_from_archive((struct ar_hdr*)((void*)file_struct->file
-			+ ran->ran_off), &file_list, file);
+			+ ran->ran_off), &file_list);
 		offset += sizeof(struct ranlib);
 		size -= sizeof(struct ranlib);
 	}
 	order_files(&file_list);
 	function_on_chained_list(&file_list, show_all_files, file);
+	delete_chained_list(&file_list, delete_archive);
 }
