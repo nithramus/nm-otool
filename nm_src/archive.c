@@ -6,14 +6,13 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 11:50:49 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/22 17:08:07 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 15:08:18 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
 void	file_done(
-	t_libft_chained_list **first,
 	t_libft_chained_list *maillon,
 	void *param)
 {
@@ -27,7 +26,6 @@ void	file_done(
 }
 
 void	show_all_files(
-	t_libft_chained_list **first,
 	t_libft_chained_list *maillon,
 	void *param)
 {

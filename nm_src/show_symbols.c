@@ -6,14 +6,13 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 18:21:41 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 14:09:13 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 15:08:52 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
 void	find_symbol(
-	t_libft_chained_list **first,
 	t_libft_chained_list *maillon,
 	void *params)
 {
@@ -61,7 +60,6 @@ void	print_letter(t_symbol *symbol, t_libft_chained_list **section)
 }
 
 void	print_symbol_32(
-	t_libft_chained_list **first,
 	t_libft_chained_list *sym,
 	void *params)
 {
@@ -79,7 +77,6 @@ void	print_symbol_32(
 }
 
 void	print_symbol_64(
-	t_libft_chained_list **first,
 	t_libft_chained_list *sym,
 	void *params)
 {

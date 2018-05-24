@@ -6,14 +6,13 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 19:13:01 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/22 14:52:51 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 15:08:26 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
 void	order_f(
-	t_libft_chained_list **first,
 	t_libft_chained_list *maillon,
 	void *params)
 {

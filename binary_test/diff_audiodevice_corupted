@@ -1,4 +1,6 @@
-1,113d0
+1,114d0
+< 
+< /Users/bandre/C/ft_nm-ft_otool_binaire_de_test/hell/audiodevice_corupted (for architecture ppc):
 <          U 
 <          U 
 <          U 
@@ -34,7 +36,7 @@
 <          u 
 <          u 
 <          u 
-< 00001000 U 
+< 00001000 A 
 < 00001ff0 T 
 < 00002024 t 
 < 00002370 t 
@@ -111,4 +113,3 @@
 < 000051d4 b 
 < 00006108 S 
 < 00006138 S 
-< Invalid header1
