@@ -11,3 +11,4 @@ do
 	diff binary_test/test1 binary_test/test2 >> yolo
 	
 done
+https://github.com/UgurcanOzdemir/ft_nm-ft_otool_binaire_de_test
