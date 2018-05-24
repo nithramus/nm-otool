@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 18:21:41 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 15:08:52 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 17:14:11 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,7 @@ void	show_symbols(
 		function_on_chained_list(symbols, print_symbol_64, sections);
 	else
 		function_on_chained_list(symbols, print_symbol_32, sections);
+	delete_chained_list(symbols, free);
+	delete_chained_list(sections, free);
+
 }

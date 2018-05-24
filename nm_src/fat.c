@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 20:32:16 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 14:46:58 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 17:22:56 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	create_filestruct_from_fat(struct fat_arch *fat, void *file_ptr, t_mainstru
 	if (strcmp(file_struct->architecture, "x86_64") != 0)
 		ft_printf("\n%s (for architecture %s):\n", file, file_struct->architecture);
 	print_file(file_struct);
+	free(file_struct);
 }
 
 void	fat(t_mainstruct *file_struct, char *file)

@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 13:20:04 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 14:12:50 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/24 17:22:29 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ uint16_t	reverse_16(void *ptr, t_mainstruct *file_struct)
 			quit_clean("Malloc failed");
 		swap(array, ptr, 2);
 		value = *(uint16_t*)array;
+		free(array);
 	}
 	else
 		value = *(uint16_t*)ptr;
@@ -58,6 +59,7 @@ uint32_t	reverse_32(void *ptr, t_mainstruct *file_struct)
 			quit_clean("Malloc failed");
 		swap(array, ptr, 4);
 		value = *(uint32_t*)array;
+		free(array);
 	}
 	else
 		value = *(uint32_t*)ptr;
@@ -79,6 +81,7 @@ uint64_t	reverse_64(void *ptr, t_mainstruct *file_struct)
 			quit_clean("Malloc failed");
 		swap(array, ptr, 8);
 		value = *(uint64_t*)array;
+		free(array);
 	}
 	else
 		value = *(uint64_t*)ptr;

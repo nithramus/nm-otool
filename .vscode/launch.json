@@ -9,7 +9,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/nm",
-			"args": ["/Users/bandre/C/ft_nm-ft_otool_binaire_de_test/hell/audiodevice"],
+			"args": ["a.out"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [],
