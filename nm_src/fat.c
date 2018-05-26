@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 20:32:16 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 18:48:56 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/26 17:29:57 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,15 @@ void	set_fat_type(t_mainstruct *file_struct)
 
 void	create_filestruct_from_fat(struct fat_arch *fat, void *file_ptr, t_mainstruct *main_file, char *file)
 {
-	t_mainstruct		*file_struct;
+	t_mainstruct		file_struct;
 
-	file_struct = malloc(sizeof(t_mainstruct));
-	if (!file_struct)
-		quit_clean("malloc error");
-	initmainstruct(file_struct);
-	file_struct->file_length = reverse(&fat->size, main_file);
-	file_struct->file = file_ptr + reverse(&fat->offset, main_file);
-	parse_header(file_struct);
-	if (strcmp(file_struct->architecture, "x86_64") != 0)
-		ft_printf("\n%s (for architecture %s):\n", file, file_struct->architecture);
-	print_file(file_struct);
-	free(file_struct);
+	initmainstruct(&file_struct);
+	file_struct.file_length = reverse(&fat->size, main_file);
+	file_struct.file = file_ptr + reverse(&fat->offset, main_file);
+	parse_header(&file_struct);
+	if (strcmp(file_struct.architecture, "x86_64") != 0)
+		ft_printf("\n%s (for architecture %s):\n", file, file_struct.architecture);
+	print_file(&file_struct);
 }
 
 void	fat(t_mainstruct *file_struct, char *file)
@@ -71,7 +67,6 @@ void	fat(t_mainstruct *file_struct, char *file)
 	unsigned int		i;
 	int					offset;
 
-	// test file_size
 	i = 0;
 	offset = sizeof(struct fat_header);
 	header = (struct fat_header*)file_struct->file;

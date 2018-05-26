@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 15:08:39 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 14:46:31 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/26 17:25:13 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ void	get_all_symbols(
 	while (i < reverse_32(&st->nsyms, file_struct))
 	{
 		if (!(symbol = malloc(sizeof(t_symbol))))
-			quit_clean("malloc failed");
+		{
+			file_struct->is_valid = 0;
+			file_struct->error = "Malloc failed";
+			return;
+		}
 		// VERIFIER SYMTABSIZE, et stringable jump
 		if (stringable + reverse_32(&symtab->n_un.n_strx, file_struct) < (void*)file_struct->file + file_struct->file_length)
 			symbol->name = stringable + reverse_32(&symtab->n_un.n_strx, file_struct);
@@ -59,10 +63,7 @@ void	create_symbol_list(
 	j = 1;
 	lc = (struct load_command*)(file_struct->file + file_struct->size_of_header);
 	while ((uint32_t)i < file_struct->nb_command)
-	{
-	// check_size_loadcmsg();
-	// TODO: reverse
-		
+	{	
 		if (file_struct->file_length + (void*)file_struct->file <= (void*)lc)
 		{
 			file_struct->is_valid = 0;

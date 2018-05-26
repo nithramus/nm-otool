@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 13:01:35 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 14:47:59 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/26 17:02:55 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ void			get_file(t_mainstruct *file_struct, char *file_name)
 		return ;
 	}
 	if (!(file = (char*)malloc(buff.st_size + 2)))
-		quit_clean("Malloc failed");
+		{
+			file_struct->is_valid = 0;
+			file_struct->error = "Malloc failed";
+		}
 	if (read(fd, file, buff.st_size) < buff.st_size)
 	{
 		file_struct->is_valid = -1;
@@ -63,9 +66,11 @@ t_mainstruct	*create_file(char *file)
 
 	file_struct = malloc(sizeof(t_mainstruct));
 	if (!file_struct)
-		quit_clean("Malloc failed");
+		return (NULL);
 	initmainstruct(file_struct);
 	get_file(file_struct, file);
+	if (file_struct->is_valid == 0)
+		return (NULL);
 	get_type(file_struct);
 	return (file_struct);
 }

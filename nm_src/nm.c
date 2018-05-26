@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 11:52:50 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 18:33:14 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/26 17:34:44 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ int		main(int argc, char **argv)
 	if (argc < 2)
 	{
 		file_struct = create_file("a.out");
+		if (!file_struct)
+			return (1);
 		parse_file(file_struct, "a.out");
 		free(file_struct);
 		free(file_struct->file);
@@ -86,6 +88,8 @@ int		main(int argc, char **argv)
 		while (i < argc)
 		{
 			file_struct = create_file(argv[i]);
+			if (!file_struct)
+				return (1);
 			parse_file(file_struct, argv[i]);
 			free(file_struct->file);
 			free(file_struct);

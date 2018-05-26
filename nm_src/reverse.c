@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 13:20:04 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 17:22:29 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/26 16:47:43 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,14 @@ void	swap(char *array, char *ptr, size_t size)
 uint16_t	reverse_16(void *ptr, t_mainstruct *file_struct)
 {
 	uint16_t	value;
-	char		*array;
+	char		array[2];
 	uint16_t	divi;
 
 	divi = 1;
 	if (file_struct->bit_order == 0)
 	{
-		array = ft_memalloc(16);
-		if (!array)
-			quit_clean("Malloc failed");
 		swap(array, ptr, 2);
 		value = *(uint16_t*)array;
-		free(array);
 	}
 	else
 		value = *(uint16_t*)ptr;
@@ -48,40 +44,31 @@ uint16_t	reverse_16(void *ptr, t_mainstruct *file_struct)
 uint32_t	reverse_32(void *ptr, t_mainstruct *file_struct)
 {
 	uint32_t	value;
-	char		*array;
+	char		array[4];
 	uint32_t	divi;
 
 	divi = 1;
 	if (file_struct->bit_order == 0)
 	{
-		array = ft_memalloc(32);
-		if (!array)
-			quit_clean("Malloc failed");
 		swap(array, ptr, 4);
 		value = *(uint32_t*)array;
-		free(array);
 	}
 	else
 		value = *(uint32_t*)ptr;
-
 	return (value);
 }
 
 uint64_t	reverse_64(void *ptr, t_mainstruct *file_struct)
 {
 	uint64_t	value;
-	char		*array;
+	char		array[8];
 	uint64_t	divi;
 
 	divi = 1;
 	if (file_struct->bit_order == 0)
 	{
-		array = ft_memalloc(64);
-		if (!array)
-			quit_clean("Malloc failed");
 		swap(array, ptr, 8);
 		value = *(uint64_t*)array;
-		free(array);
 	}
 	else
 		value = *(uint64_t*)ptr;

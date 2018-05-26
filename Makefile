@@ -6,7 +6,7 @@
 #    By: bandre <bandre@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/07 16:17:12 by bandre            #+#    #+#              #
-#    Updated: 2018/05/24 18:43:34 by bandre           ###   ########.fr        #
+#    Updated: 2018/05/26 17:30:23 by bandre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ SRC = nm.o\
 	  reverse.o\
 	  create_symbol_list.o\
 	  parse_header.o\
-	  quit_clean.o\
 	  get_sections.o\
 	  show_symbols.o\
 	  order_symbol.o\
@@ -29,7 +28,6 @@ SRC = nm.o\
   	  archive.o\
 	  order_files.o\
 	  fat.o\
-
 
 CC = gcc -g
 

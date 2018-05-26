@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 16:54:58 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 17:09:06 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/26 17:27:47 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ void	get_sections_32(
 	{
 		section = malloc(sizeof(t_section));
 		if (!section)
-			quit_clean("Malloc failed");
+		{
+			file_struct->is_valid = 0;
+			file_struct->error = "Malloc failed";
+			return;
+		}
 		section->sect_name = sect->sectname;
 		section->seg_name = sect->segname;
 		section->num = *j;
@@ -55,7 +59,11 @@ void	get_sections_64(
 	{
 		section = malloc(sizeof(t_section));
 		if (!section)
-			quit_clean("Malloc failed");
+		{
+			file_struct->is_valid = 0;
+			file_struct->error = "Malloc failed";
+			return;
+		}
 		section->sect_name = sect->sectname;
 		section->seg_name = sect->segname;
 		section->num = *j;
