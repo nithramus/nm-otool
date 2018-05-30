@@ -27,6 +27,12 @@ void	get_all_symbols(
 	symtab = (void*)file_struct->file + reverse_32(&st->symoff, file_struct);
 	while (i < reverse_32(&st->nsyms, file_struct))
 	{
+		if ((char*)symtab + sizeof(struct nlist_64) > file_struct->file + file_struct->file_length)
+		{
+			file_struct->is_valid = 0;
+			file_struct->error = "Invalid file";
+			return ;
+		}
 		if (!(symbol = malloc(sizeof(t_symbol))))
 		{
 			file_struct->is_valid = 0;
@@ -62,9 +68,9 @@ void	create_symbol_list(
 	i = 0;
 	j = 1;
 	lc = (struct load_command*)(file_struct->file + file_struct->size_of_header);
-	while ((uint32_t)i < file_struct->nb_command)
-	{	
-		if (file_struct->file_length + (void*)file_struct->file <= (void*)lc)
+	while ((uint32_t)i < file_struct->nb_command && file_struct->is_valid)
+	{
+		if ((char*)lc + sizeof(struct load_command)> file_struct->file + file_struct->file_length)
 		{
 			file_struct->is_valid = 0;
 			file_struct->error = "Invalid file";

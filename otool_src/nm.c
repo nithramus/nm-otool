@@ -44,13 +44,8 @@ void	print_file(void *file_struct)
 		return ;
 	}
 	create_symbol_list(&symbols, &sections, file);
-	if (file->is_valid == 0)
-	{
-		ft_putendl(file->error);
-		return ;
-	}
-	order_symbol(&symbols);
-	show_symbols(&symbols, &sections, file_struct);
+	delete_chained_list(&symbols, free);
+	delete_chained_list(&sections, free);
 }
 
 void	parse_file(t_mainstruct *file_struct, char *filename)
@@ -60,7 +55,10 @@ void	parse_file(t_mainstruct *file_struct, char *filename)
 	else if (file_struct->file_type == 0)
 	{
 		parse_header(file_struct);
-		file_struct->filename = filename;
+		if (strcmp(file_struct->architecture, "ppc") == 0)
+			ft_printf("%s (architecture %s):\n", filename, file_struct->architecture);
+		else
+			ft_printf("%s:\n", filename);
 		print_file(file_struct);
 	}
 	else if (file_struct->file_type == 1)

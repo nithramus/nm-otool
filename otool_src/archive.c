@@ -33,7 +33,7 @@ void	show_all_files(
 
 	file_struct = (t_mainstruct *)maillon->data;
 	parse_header(file_struct);
-	ft_printf("\n%s(%s):\n", param, file_struct->filename);
+	ft_printf("%s(%s):\n", param, file_struct->filename);
 	print_file(file_struct);
 }
 
@@ -87,7 +87,7 @@ int		header_name(void *ptr, char **name)
 			return (0);
 		ft_strncpy(*name, header->ar_name, 16);
 		(*name)[16] = '\0';
-		pos = ft_strrchr(*name, 20);
+		pos = ft_strchr(*name, 0x20);
 		if (pos)
 			*pos = '\0';
 	}
@@ -119,6 +119,7 @@ void	archive(t_mainstruct *file_struct, char *file)
 	free(name);
 	size = *(int*)(file_struct->file + offset);
 	offset += sizeof(int);
+	ft_printf("%s : %s\n", "Archive : ", file);
 	while (size > 0)
 	{
 		ran = (struct ranlib*)((void*)file_struct->file + offset);

@@ -1,0 +1,628 @@
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/32_exe_hard
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/32_exe_hard_corupted
+1d0
+< Invalid file
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/64_bundle
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/64_exe_easy
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/64_exe_hard
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/64_exe_hard_corupted
+1d0
+< Invalid file
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/64_exe_medium
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/64_lib_dynamic_hard
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/64_lib_dynamic_medium
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/PN548_API.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/PN548_HAL_OSX.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/PN548_OSX.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/a
+1d0
+< Invalid file
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/appsleepd
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/audiodevice
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/audiodevice_corupted
+1,117d0
+< 
+< /Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/audiodevice_corupted (for architecture ppc):
+<          U 
+<          U 
+<          U 
+<          U 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+<          u 
+< 00001000 A 
+< 00001ff0 T 
+< 00002024 t 
+< 00002370 t 
+< 00002388 t 
+< 00002398 t 
+< 000029e0 t 
+< 00002a60 t 
+< 00002aa4 t 
+< 00002b34 t 
+< 00002bf4 t 
+< 00002c58 t 
+< 00002d84 t 
+< 00002e10 t 
+< 00002e9c t 
+< 00002ea4 t 
+< 00002eac t 
+< 00002f30 t 
+< 00002f3c t 
+< 00002fc0 t 
+< 00003058 t 
+< 0000309c t 
+< 00003104 t 
+< 000032bc t 
+< 0000343c t 
+< 0000344c t 
+< 0000345c t 
+< 000034ec t 
+< 000035ac t 
+< 0000363c t 
+< 000036c8 t 
+< 000036e0 t 
+< 000036f4 t 
+< 0000370c t 
+< 00003720 t 
+< 00003738 t 
+< 0000374c t 
+< 00003780 t 
+< 00003b20 t 
+< 00003b38 t 
+< 00003b48 t 
+< 00003b60 t 
+< 00003b70 t 
+< 00003c04 t 
+< 00003c84 t 
+< 00003c8c t 
+< 00003dd4 t 
+< 00003efc t 
+< 00003f94 t 
+< 00004140 t 
+< 00004fbc s 
+< 00004fc4 s 
+< 00004fcc s 
+< 00005000 D 
+< 00005004 D 
+< 00005008 D 
+< 0000500c D 
+< 00005010 d 
+< 00005188 S 
+< 0000518c S 
+< 00005190 S 
+< 00005194 S 
+< 00005198 S 
+< 0000519c S 
+< 000051a0 S 
+< 000051a4 S 
+< 000051a8 S 
+< 000051ac S 
+< 000051b0 S 
+< 000051b4 S 
+< 000051b8 S 
+< 000051bc S 
+< 000051cc b 
+< 000051d0 b 
+< 000051d4 b 
+< 00006108 S 
+< 00006138 S 
+< 
+< /Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/audiodevice_corupted (for architecture ppc):
+< Invalid file
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/bash
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/cfprefsd
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/curl_chibre
+1d0
+< Invalid file
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/diff
+1d0
+< Invalid file
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/distnoted
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/fat_hard
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/fat_hard_corupted
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/fichier_vide
+1d0
+< Invalid file
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/ft_nm32
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/hello_je_diff
+1,225c1,225
+< 0000000001000014 U bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 U bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 U bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 U bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 U bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 U bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 U bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 U bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 U bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 U bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 U bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 U bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 U bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 U bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 u bad string index
+< 0100000000000000 U bad string index
+< 0100000000000001 u bad string index
+< 0100000000000001 U bad string index
+< 01000000005a832f T bad string index
+< 01000000005a832f T bad string index
+< 01000000005a832f T bad string index
+< 01000000005a832f T bad string index
+< 01000000005a832f T bad string index
+< 01000000005a832f T bad string index
+< 01000000005a832f T bad string index
+< 01000000005a832f T bad string index
+< 01000000005a832f T bad string index
+< 01000000005a832f T bad string index
+< 01000000005a832f T bad string index
+< 01000000005a832f T bad string index
+< 01000000005a832f T bad string index
+< 01000000005a832f T bad string index
+< 01000000005a832f T bad string index
+< 0100000001000012 U bad string index
+< 0200000001000050 U bad string index
+< 0300000001000012 U bad string index
+< 0500000001000044 U bad string index
+< 070000000100003a U bad string index
+< 0a0000000100000f U bad string index
+< 0c00000001000012 U bad string index
+< 0c00000001000014 U bad string index
+< 120000000100004d U bad string index
+< 1400000000000000 u bad string index
+< 1400000001000035 U bad string index
+< 1600000000000000 u bad string index
+< 1600000001000000 U bad string index
+< 170000000100000f U bad string index
+< 1b00000000000000 u bad string index
+< 1c0000000100003f U bad string index
+< 1d00000000000000 U bad string index
+< 2000000000000000 u bad string index
+< 2200000000000000 u bad string index
+< 220000000100000d U bad string index
+< 2400000001000015 U bad string index
+< 2700000000000000 u bad string index
+< 2800000001000014 U bad string index
+< 280000000100004e U bad string index
+< 2900000001000017 U bad string index
+< 2b00000001000026 U bad string index
+< 2c0000000100000e U bad string index
+< 2d00000001000010 U bad string index
+< 2d00000001000024 U bad string index
+< 3100000001000010 U bad string index
+< 3300000001000014 U bad string index
+< 3300000001000042 U bad string index
+< 3700000001000019 U bad string index
+< 3700000001000050 U bad string index
+< 380000000100000e U bad string index
+< 390000000100000e U bad string index
+< 3c00000001000025 U bad string index
+< 3d00000001000010 U bad string index
+< 4000000001000045 U bad string index
+< 4300000000000000 u bad string index
+< 430000000100003f U bad string index
+< 4500000001000010 U bad string index
+< 450000000100001a U bad string index
+< 4800000001000027 U bad string index
+< 4900000000000000 u bad string index
+< 4a0000000100003a U bad string index
+< 4d00000001000045 U bad string index
+< 4e00000000000000 u bad string index
+< 510000000100000f U bad string index
+< 5200000000000000 u bad string index
+< 520000000100001c U bad string index
+< 5600000000000000 u bad string index
+< 570000000100002e U bad string index
+< 5800000000000000 u bad string index
+< 5a00000001000034 U bad string index
+< 5e00000001000012 U bad string index
+< 600000000100000d U bad string index
+< 600000000100001f U bad string index
+< 6000000001000039 U bad string index
+< 6200000001000041 U bad string index
+< 6400000001000024 U bad string index
+< 640000000100003b U bad string index
+< 650000000100000f U bad string index
+< 6900000001000012 U bad string index
+< 6b0000000100000d U bad string index
+< 6e00000001000020 U bad string index
+< 6e00000001000027 U bad string index
+< 700000000100000f U bad string index
+< 7500000001000036 U bad string index
+< 7700000001000030 U bad string index
+< 780000000100003c U bad string index
+< 7900000000000000 u bad string index
+< 7b00000000000000 u bad string index
+< 7b00000001000022 U bad string index
+< 8000000000000000 u bad string index
+< 8100000001000046 U bad string index
+< 8500000000000000 u bad string index
+< 8700000000000000 u bad string index
+< 8700000000000000 u bad string index
+< 8a00000001000031 U bad string index
+< 8c00000000000000 u bad string index
+< 8c0000000100003d U bad string index
+< 8d00000001000029 U bad string index
+< 8f0000000100004c U bad string index
+< 9300000001000014 U bad string index
+< 9400000001000011 U bad string index
+< 950000000100000f U bad string index
+< 9700000001000031 U bad string index
+< 9a00000000000000 u bad string index
+< 9a00000001000033 U bad string index
+< 9c00000001000048 U bad string index
+< 9d00000001000011 U bad string index
+< 9f0000000100002b U bad string index
+< a100000000000000 u bad string index
+< a10000000100000f U bad string index
+< a100000001000014 U bad string index
+< a500000001000024 U bad string index
+< a700000000000000 u bad string index
+< a900000001000028 U bad string index
+< a90000000100004a U bad string index
+< ab00000000000000 u bad string index
+< ae00000001000011 U bad string index
+< b200000000000000 u bad string index
+< b400000000000000 u bad string index
+< b600000000000000 u bad string index
+< b800000000000000 u bad string index
+< b800000001000018 U bad string index
+< b80000000100002f U bad string index
+< ba0000000100000f U bad string index
+< bb0000000100002a U bad string index
+< be00000000000000 u bad string index
+< bf00000000000000 u bad string index
+< c100000000000000 u bad string index
+< c300000001000013 U bad string index
+< c400000000000000 u bad string index
+< c50000000100000d U bad string index
+< c500000001000014 U bad string index
+< c70000000100001e U bad string index
+< c80000000100002d U bad string index
+< ca00000001000010 U bad string index
+< cc00000000000000 u bad string index
+< cd00000001000033 U bad string index
+< ce00000001000013 U bad string index
+< d00000000100000d U bad string index
+< d200000000000000 u bad string index
+< d300000001000014 U bad string index
+< d300000001000039 U bad string index
+< d500000001000010 U bad string index
+< d500000001000025 U bad string index
+< d600000000000000 u bad string index
+< d900000000000000 u bad string index
+< da00000001000041 U bad string index
+< dc00000001000035 U bad string index
+< de00000000000000 u bad string index
+< df00000001000014 U bad string index
+< e000000000000000 u bad string index
+< e200000001000014 U bad string index
+< e500000000000000 u bad string index
+< ea00000000000000 U bad string index
+< ea00000000000000 U bad string index
+< ea00000000000000 U bad string index
+< ea00000000000000 U bad string index
+< ea00000000000000 U bad string index
+< ea00000000000000 U bad string index
+< ea00000000000000 U bad string index
+< ea00000000000000 U bad string index
+< ea00000000000000 U bad string index
+< ea00000000000000 U bad string index
+< ea00000000000000 U bad string index
+< ea00000000000000 U bad string index
+< ea00000000000000 u bad string index
+< ea00000000000000 U bad string index
+< ea00000000000000 U bad string index
+< ea00000001000013 U bad string index
+< ec00000001000049 U bad string index
+< ed00000000000000 u bad string index
+< ed00000001000043 U bad string index
+< ed00000001000044 U bad string index
+< f200000000000000 u bad string index
+< f50000000100000d U bad string index
+< f700000001000012 U bad string index
+< fa00000001000045 U bad string index
+< fe0000000100000f U bad string index
+< fe0000000100004b U bad string index
+---
+> 0000000001000014 C bad string index
+> 0100000000000000 C bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 C bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 C bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 C bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 C bad string index
+> 0100000000000000 C bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 C bad string index
+> 0100000000000000 C bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 C bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 C bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 C bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 C bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 C bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 ? bad string index
+> 0100000000000000 C bad string index
+> 0100000000000001 ? bad string index
+> 0100000000000001 C bad string index
+> 01000000005a832f A bad string index
+> 01000000005a832f A bad string index
+> 01000000005a832f A bad string index
+> 01000000005a832f A bad string index
+> 01000000005a832f A bad string index
+> 01000000005a832f A bad string index
+> 01000000005a832f A bad string index
+> 01000000005a832f A bad string index
+> 01000000005a832f A bad string index
+> 01000000005a832f A bad string index
+> 01000000005a832f A bad string index
+> 01000000005a832f A bad string index
+> 01000000005a832f A bad string index
+> 01000000005a832f A bad string index
+> 01000000005a832f A bad string index
+> 0100000001000012 C bad string index
+> 0200000001000050 ? bad string index
+> 0300000001000012 C bad string index
+> 0500000001000044 C bad string index
+> 070000000100003a C bad string index
+> 0a0000000100000f C bad string index
+> 0c00000001000012 C bad string index
+> 0c00000001000014 C bad string index
+> 120000000100004d C bad string index
+> 1400000000000000 ? bad string index
+> 1400000001000035 C bad string index
+> 1600000000000000 ? bad string index
+> 1600000001000000 C bad string index
+> 170000000100000f C bad string index
+> 1b00000000000000 ? bad string index
+> 1c0000000100003f C bad string index
+> 1d00000000000000 C bad string index
+> 2000000000000000 ? bad string index
+> 2200000000000000 ? bad string index
+> 220000000100000d C bad string index
+> 2400000001000015 C bad string index
+> 2700000000000000 ? bad string index
+> 2800000001000014 C bad string index
+> 280000000100004e C bad string index
+> 2900000001000017 C bad string index
+> 2b00000001000026 C bad string index
+> 2c0000000100000e C bad string index
+> 2d00000001000010 C bad string index
+> 2d00000001000024 C bad string index
+> 3100000001000010 C bad string index
+> 3300000001000014 C bad string index
+> 3300000001000042 C bad string index
+> 3700000001000019 C bad string index
+> 3700000001000050 ? bad string index
+> 380000000100000e C bad string index
+> 390000000100000e C bad string index
+> 3c00000001000025 C bad string index
+> 3d00000001000010 C bad string index
+> 4000000001000045 C bad string index
+> 4300000000000000 ? bad string index
+> 430000000100003f C bad string index
+> 4500000001000010 C bad string index
+> 450000000100001a C bad string index
+> 4800000001000027 C bad string index
+> 4900000000000000 ? bad string index
+> 4a0000000100003a C bad string index
+> 4d00000001000045 C bad string index
+> 4e00000000000000 ? bad string index
+> 510000000100000f C bad string index
+> 5200000000000000 ? bad string index
+> 520000000100001c C bad string index
+> 5600000000000000 ? bad string index
+> 570000000100002e C bad string index
+> 5800000000000000 ? bad string index
+> 5a00000001000034 C bad string index
+> 5e00000001000012 C bad string index
+> 600000000100000d C bad string index
+> 600000000100001f C bad string index
+> 6000000001000039 C bad string index
+> 6200000001000041 C bad string index
+> 6400000001000024 C bad string index
+> 640000000100003b C bad string index
+> 650000000100000f C bad string index
+> 6900000001000012 C bad string index
+> 6b0000000100000d C bad string index
+> 6e00000001000020 C bad string index
+> 6e00000001000027 C bad string index
+> 700000000100000f C bad string index
+> 7500000001000036 C bad string index
+> 7700000001000030 C bad string index
+> 780000000100003c C bad string index
+> 7900000000000000 ? bad string index
+> 7b00000000000000 ? bad string index
+> 7b00000001000022 C bad string index
+> 8000000000000000 ? bad string index
+> 8100000001000046 C bad string index
+> 8500000000000000 ? bad string index
+> 8700000000000000 ? bad string index
+> 8700000000000000 ? bad string index
+> 8a00000001000031 C bad string index
+> 8c00000000000000 ? bad string index
+> 8c0000000100003d C bad string index
+> 8d00000001000029 C bad string index
+> 8f0000000100004c C bad string index
+> 9300000001000014 C bad string index
+> 9400000001000011 C bad string index
+> 950000000100000f C bad string index
+> 9700000001000031 C bad string index
+> 9a00000000000000 ? bad string index
+> 9a00000001000033 C bad string index
+> 9c00000001000048 C bad string index
+> 9d00000001000011 C bad string index
+> 9f0000000100002b C bad string index
+> a100000000000000 ? bad string index
+> a10000000100000f C bad string index
+> a100000001000014 C bad string index
+> a500000001000024 C bad string index
+> a700000000000000 ? bad string index
+> a900000001000028 C bad string index
+> a90000000100004a C bad string index
+> ab00000000000000 ? bad string index
+> ae00000001000011 C bad string index
+> b200000000000000 ? bad string index
+> b400000000000000 ? bad string index
+> b600000000000000 ? bad string index
+> b800000000000000 ? bad string index
+> b800000001000018 C bad string index
+> b80000000100002f C bad string index
+> ba0000000100000f C bad string index
+> bb0000000100002a C bad string index
+> be00000000000000 ? bad string index
+> bf00000000000000 ? bad string index
+> c100000000000000 ? bad string index
+> c300000001000013 C bad string index
+> c400000000000000 ? bad string index
+> c50000000100000d C bad string index
+> c500000001000014 C bad string index
+> c70000000100001e C bad string index
+> c80000000100002d C bad string index
+> ca00000001000010 C bad string index
+> cc00000000000000 ? bad string index
+> cd00000001000033 C bad string index
+> ce00000001000013 C bad string index
+> d00000000100000d C bad string index
+> d200000000000000 ? bad string index
+> d300000001000014 C bad string index
+> d300000001000039 C bad string index
+> d500000001000010 C bad string index
+> d500000001000025 C bad string index
+> d600000000000000 ? bad string index
+> d900000000000000 ? bad string index
+> da00000001000041 C bad string index
+> dc00000001000035 C bad string index
+> de00000000000000 ? bad string index
+> df00000001000014 C bad string index
+> e000000000000000 ? bad string index
+> e200000001000014 C bad string index
+> e500000000000000 ? bad string index
+> ea00000000000000 C bad string index
+> ea00000000000000 C bad string index
+> ea00000000000000 C bad string index
+> ea00000000000000 C bad string index
+> ea00000000000000 C bad string index
+> ea00000000000000 C bad string index
+> ea00000000000000 C bad string index
+> ea00000000000000 C bad string index
+> ea00000000000000 C bad string index
+> ea00000000000000 C bad string index
+> ea00000000000000 C bad string index
+> ea00000000000000 C bad string index
+> ea00000000000000 C bad string index
+> ea00000000000000 ? bad string index
+> ea00000000000000 C bad string index
+> ea00000001000013 C bad string index
+> ec00000001000049 C bad string index
+> ed00000000000000 ? bad string index
+> ed00000001000043 C bad string index
+> ed00000001000044 C bad string index
+> f200000000000000 ? bad string index
+> f50000000100000d C bad string index
+> f700000001000012 C bad string index
+> fa00000001000045 C bad string index
+> fe0000000100000f C bad string index
+> fe0000000100004b C bad string index
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/hmmm_je_met_mon_gros_doigt_de_pied
+1d0
+< Invalid file
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/libAccountPolicyTranslation.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/libFosl_dynamic.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/lib_archive_medium
+1d0
+< Invalid file
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/libarchive.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/libate.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/libblas.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/libc++.1.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/libc++.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/libcblas.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/libclapack.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/libcom_err.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/libcompression.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/libcoretls.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/libdes425.dylib
+/Users/bandre/projects/ft_nm-ft_otool_binaire_de_test/hell/libdns_services.dylib

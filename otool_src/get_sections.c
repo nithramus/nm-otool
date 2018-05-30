@@ -33,8 +33,12 @@ void	print_memory(char *addrchar, size_t size, uint64_t value, t_mainstruct *fil
 	size_t i;
 	char ret[2];
 
+	if (addrchar + size > file_struct->file + file_struct->file_length)
+		return ;
 	i = -1;
-	ft_printf("%s:\n%s", file_struct->filename, "Contents of (__TEXT,__text) section");
+	if (addrchar + size > file_struct->file + file_struct->file_length)
+		return ;
+	ft_putstr("Contents of (__TEXT,__text) section");
 	while (++i < size)
 	{
 		if ((i) % 16 == 0)
@@ -47,7 +51,8 @@ void	print_memory(char *addrchar, size_t size, uint64_t value, t_mainstruct *fil
 		}
 		ft_itoa2(addrchar[i], ret);		
 		write(1, ret, 2);
-		ft_putstr(" ");
+		if (file_struct->bit_order || (i + 1) % 4 == 0)
+			ft_putstr(" ");
 	}
 	ft_putendl("");
 }
@@ -76,6 +81,8 @@ void	get_sections_32(
 		section->sect_name = sect->sectname;
 		section->seg_name = sect->segname;
 		section->num = *j;
+		if (ft_strcmp(sect->sectname, "__text") == 0)
+			print_memory(file_struct->file + reverse_32(&sect->offset, file_struct), reverse_32(&sect->size, file_struct), reverse_32(&sect->addr, file_struct), file_struct);
 		add_back_maillon(sections, section);
 		sect = (void*)sect + sizeof(struct section);
 		i++;
@@ -109,10 +116,7 @@ void	get_sections_64(
 		section->num = *j;
 		// TEST SIZE
 		if (ft_strcmp(sect->sectname, "__text") == 0)
-		{
-			print_memory(file_struct->file + sect->offset, sect->size, sect->addr, file_struct);
-			exit(0);
-		}
+			print_memory(file_struct->file + reverse_32(&sect->offset, file_struct), reverse_64(&sect->size, file_struct), reverse_64(&sect->addr, file_struct), file_struct);
 		add_back_maillon(sections, section);
 		sect = (void*)sect + sizeof(struct section_64);
 		i++;

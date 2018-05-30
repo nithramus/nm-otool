@@ -57,7 +57,7 @@ void	create_filestruct_from_fat(struct fat_arch *fat, void *file_ptr, t_mainstru
 	file_struct.file = file_ptr + reverse(&fat->offset, main_file);
 	parse_header(&file_struct);
 	if (strcmp(file_struct.architecture, "x86_64") != 0)
-		ft_printf("\n%s (for architecture %s):\n", file, file_struct.architecture);
+		ft_printf("%s (architecture %s):\n", file, file_struct.architecture);
 	print_file(&file_struct);
 }
 
@@ -70,6 +70,7 @@ void	fat(t_mainstruct *file_struct, char *file)
 	i = 0;
 	offset = sizeof(struct fat_header);
 	header = (struct fat_header*)file_struct->file;
+	ft_printf("%s:\n", file);
 	set_fat_type(file_struct);
 	if (file_struct->is_valid == 0)
 	{
@@ -91,8 +92,8 @@ void	fat(t_mainstruct *file_struct, char *file)
 	while (i < file_struct->nb_command)
 	{
 		create_filestruct_from_fat((struct fat_arch *)(file_struct->file + offset), file_struct->file, file_struct, file);
-
 		offset += file_struct->size_of_header;
 		i++;
+		
 	}
 }
