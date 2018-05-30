@@ -12,11 +12,17 @@
 
 NAME = nm
 
-SRC_PATH = nm_src
+OTOOL = otool
 
-OBJ_PATH = nm_obj
+NM_SRC_PATH = nm_src
 
-SRC = nm.o\
+OTOOL_SRC_PATH = otool_src
+
+NM_OBJ_PATH = nm_obj
+
+OTOOL_OBJ_PATH = otool_obj
+
+NM_SRC = nm.o\
 	  parse_arg.o\
 	  reverse.o\
 	  create_symbol_list.o\
@@ -33,24 +39,32 @@ CC = gcc -g
 
 FLAG = -Wall -Wextra -O -Werror
 
+
 LIB = libft/libftprintf.a libft_chained_list/libft_chained_list.a
 
-SRC_O = $(addprefix $(OBJ_PATH)/,$(SRC))
+NM_SRC_O = $(addprefix $(NM_OBJ_PATH)/,$(NM_SRC))
 
-all: EXEC $(NAME)
+OTOOL_SRC_O = $(addprefix $(OTOOL_OBJ_PATH)/,$(NM_SRC))
 
-$(NAME): $(SRC_O)
-	$(CC) $(FLAG) -o $(NAME) $(SRC_O) $(LIB)
+all: EXEC $(NAME) $(OTOOL)
 
-$(OBJ_PATH)/%.o:$(SRC_PATH)/%.c
+$(NAME): $(NM_SRC_O) 
+	$(CC) $(FLAG) -o $(NAME) $(NM_SRC_O) $(LIB) -Inm_src
+
+$(NM_OBJ_PATH)/%.o:$(NM_SRC_PATH)/%.c
 	$(CC) -c $< -o $@ $(FLAG)
 
+$(OTOOL_OBJ_PATH)/%.o:$(OTOOL_SRC_PATH)/%.c
+	$(CC) -c $< -o $@ $(FLAG)
+
+$(OTOOL): $(OTOOL_SRC_O)
+	$(CC) $(FLAG) -o $(OTOOL) $(OTOOL_SRC_O) $(LIB) -Inm_src
 EXEC:
 	make -C libft/
 	make -C libft_chained_list/
 
 clean:
-	rm -f $(addprefix $(OBJ_PATH)/,$(SRC))
+	rm -f $(addprefix $(NM_OBJ_PATH)/,$(NM_SRC))
 	make -C libft clean
 	make -C libft_chained_list clean
 	
@@ -63,7 +77,7 @@ fclean: clean
 
 re: fclean all
 
-flag: $(SRC)
+flag: $(NM_SRC)
 	$(CC) $(NAME) $(LIB) -o $(NAME)
 
 do: all

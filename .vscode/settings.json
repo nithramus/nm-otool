@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"loader.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"nm.h": "c"
 	}
 }
