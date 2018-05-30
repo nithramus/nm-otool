@@ -16,7 +16,6 @@ void	set_fat_type(t_mainstruct *file_struct)
 {
 	struct fat_header	header;
 
-
 	header = *(struct fat_header*)file_struct->file;
 	if (header.magic == FAT_MAGIC || header.magic == FAT_MAGIC_64)
 		file_struct->bit_order = 1;
@@ -46,9 +45,10 @@ void	set_fat_type(t_mainstruct *file_struct)
 	}
 	file_struct->nb_command = reverse_32(&header.nfat_arch, file_struct);
 	file_struct->file_type = 2;
-}                                    
+}
 
-void	create_filestruct_from_fat(struct fat_arch *fat, void *file_ptr, t_mainstruct *main_file, char *file)
+void	create_filestruct_from_fat(struct fat_arch *fat,
+	void *file_ptr, t_mainstruct *main_file, char *file)
 {
 	t_mainstruct		file_struct;
 
@@ -57,7 +57,10 @@ void	create_filestruct_from_fat(struct fat_arch *fat, void *file_ptr, t_mainstru
 	file_struct.file = file_ptr + reverse(&fat->offset, main_file);
 	parse_header(&file_struct);
 	if (strcmp(file_struct.architecture, "x86_64") != 0)
-		ft_printf("\n%s (for architecture %s):\n", file, file_struct.architecture);
+	{
+		ft_printf("\n%s (for architecture %s):\n",
+			file, file_struct.architecture);
+	}
 	print_file(&file_struct);
 }
 
@@ -80,7 +83,8 @@ void	fat(t_mainstruct *file_struct, char *file)
 	{
 		if (reverse(file_struct->file + offset, file_struct) == CPU_TYPE_X86_64)
 		{
-			create_filestruct_from_fat((struct fat_arch *)(file_struct->file + offset), file_struct->file, file_struct, file);
+			create_filestruct_from_fat((struct fat_arch *)(file_struct->file
+				+ offset), file_struct->file, file_struct, file);
 			return ;
 		}
 		offset += file_struct->size_of_header;
@@ -90,8 +94,8 @@ void	fat(t_mainstruct *file_struct, char *file)
 	offset = sizeof(struct fat_header);
 	while (i < file_struct->nb_command)
 	{
-		create_filestruct_from_fat((struct fat_arch *)(file_struct->file + offset), file_struct->file, file_struct, file);
-
+		create_filestruct_from_fat((struct fat_arch *)(file_struct->file + offset),
+			file_struct->file, file_struct, file);
 		offset += file_struct->size_of_header;
 		i++;
 	}

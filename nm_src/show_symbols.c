@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 18:21:41 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 20:00:17 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/30 20:46:20 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,16 @@ void	print_letter(t_symbol *symbol, t_libft_chained_list **section)
 	search.type = NULL;
 	search.value = (int)symbol->section;
 	function_on_chained_list(section, find_symbol, &search);
-	if (!search.type)
-	{
-		if ((symbol->type & N_INDR) == N_INDR)
-			letter = 'I';
-		else if ((symbol->type & N_ABS) == N_ABS)		
-			letter = 'A';
-		else
-			letter = 'U';
-	}
+	if (!search.type && (symbol->type & N_INDR) == N_INDR)
+		letter = 'I';
+	else if (!search.type && (symbol->type & N_ABS) == N_ABS)
+		letter = 'A';
+	else if (!search.type)
+		letter = 'U';
 	else if (ft_strcmp(search.type, "__text") == 0)
 		letter = 'T';
 	else if (ft_strcmp(search.type, "__bss") == 0)
 		letter = 'B';
-	// else if (ft_strcmp(search.type, "__common") == 0)
-	// 	letter = 'C';
 	else if (ft_strcmp(search.type, "__data") == 0)
 		letter = 'D';
 	else
@@ -67,7 +62,7 @@ void	print_symbol_32(
 
 	symbol = (t_symbol*)sym->data;
 	if (symbol->type & N_STAB)
-		return ;	
+		return ;
 	if (!symbol->value && symbol->section == 0)
 		ft_printf("         ");
 	else
@@ -104,5 +99,4 @@ void	show_symbols(
 		function_on_chained_list(symbols, print_symbol_32, sections);
 	delete_chained_list(symbols, free);
 	delete_chained_list(sections, free);
-
 }

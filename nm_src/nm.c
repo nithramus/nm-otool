@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 11:52:50 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/26 17:34:44 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/30 20:39:35 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ int		main(int argc, char **argv)
 		free(file_struct->file);
 	}
 	else
-	{
 		while (i < argc)
 		{
 			file_struct = create_file(argv[i]);
@@ -95,5 +94,4 @@ int		main(int argc, char **argv)
 			free(file_struct);
 			i++;
 		}
-	}
 }

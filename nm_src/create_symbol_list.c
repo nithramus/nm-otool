@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 15:08:39 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/26 17:25:13 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/30 20:43:05 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	get_all_symbols(
 	symtab = (void*)file_struct->file + reverse_32(&st->symoff, file_struct);
 	while (i < reverse_32(&st->nsyms, file_struct))
 	{
-		if ((char*)symtab + sizeof(struct nlist_64) > file_struct->file + file_struct->file_length)
+		if (((char*)symtab) + sizeof(struct nlist_64) > file_struct->file + file_struct->file_length)
 		{
 			file_struct->is_valid = 0;
 			file_struct->error = "Invalid file";
@@ -37,9 +37,8 @@ void	get_all_symbols(
 		{
 			file_struct->is_valid = 0;
 			file_struct->error = "Malloc failed";
-			return;
+			return ;
 		}
-		// VERIFIER SYMTABSIZE, et stringable jump
 		if (stringable + reverse_32(&symtab->n_un.n_strx, file_struct) < (void*)file_struct->file + file_struct->file_length)
 			symbol->name = stringable + reverse_32(&symtab->n_un.n_strx, file_struct);
 		else
@@ -70,7 +69,7 @@ void	create_symbol_list(
 	lc = (struct load_command*)(file_struct->file + file_struct->size_of_header);
 	while ((uint32_t)i < file_struct->nb_command && file_struct->is_valid)
 	{
-		if ((char*)lc + sizeof(struct load_command)> file_struct->file + file_struct->file_length)
+		if (((char*)lc) + sizeof(struct load_command) > file_struct->file + file_struct->file_length)
 		{
 			file_struct->is_valid = 0;
 			file_struct->error = "Invalid file";
@@ -80,7 +79,7 @@ void	create_symbol_list(
 			get_all_symbols(symbols, file_struct, (struct symtab_command*)lc);
 		else if (file_struct->is_64 && reverse_32(&lc->cmd, file_struct) == LC_SEGMENT_64)
 			get_sections_64(sections, (struct segment_command_64*)lc, &j, file_struct);
-		else if (!file_struct->is_64 && reverse_32(&lc->cmd, file_struct)== LC_SEGMENT)
+		else if (!file_struct->is_64 && reverse_32(&lc->cmd, file_struct) == LC_SEGMENT)
 			get_sections_32(sections, (struct segment_command*)lc, &j, file_struct);
 		lc = (void*)lc + reverse_32(&lc->cmdsize, file_struct);
 		i++;

@@ -65,12 +65,14 @@ EXEC:
 
 clean:
 	rm -f $(addprefix $(NM_OBJ_PATH)/,$(NM_SRC))
+	rm -f $(addprefix $(OTOOL_OBJ_PATH)/,$(NM_SRC))
 	make -C libft clean
 	make -C libft_chained_list clean
 	
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(OTOOL)
 	make -C libft fclean
 	make -C libft_chained_list fclean
 

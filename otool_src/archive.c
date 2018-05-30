@@ -111,9 +111,8 @@ void	archive(t_mainstruct *file_struct, char *file)
 	char					*name;
 	struct ranlib			*ran;
 
-	offset = 8;
 	file_list = NULL;
-	offset += header_name(file_struct->file + offset, &name);
+	offset = 8 + header_name(file_struct->file + offset, &name);
 	if (!name)
 		return ;
 	free(name);

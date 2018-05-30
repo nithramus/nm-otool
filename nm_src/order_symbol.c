@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 12:48:00 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 15:08:33 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/30 20:39:13 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	order(
 		return ;
 	sym1 = (t_symbol*)maillon->data;
 	sym2 = (t_symbol*)maillon->next->data;
-	if (ft_strcmp(sym1->name, sym2->name) > 0 || (ft_strcmp(sym1->name, sym2->name) == 0 && sym2->value < sym1->value))
+	if (ft_strcmp(sym1->name, sym2->name) > 0 ||
+		(ft_strcmp(sym1->name, sym2->name) == 0 && sym2->value < sym1->value))
 	{
 		*yolo = 1;
 		tmp = maillon->data;

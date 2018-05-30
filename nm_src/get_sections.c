@@ -31,7 +31,7 @@ void	get_sections_32(
 		{
 			file_struct->is_valid = 0;
 			file_struct->error = "Malloc failed";
-			return;
+			return ;
 		}
 		section->sect_name = sect->sectname;
 		section->seg_name = sect->segname;
@@ -62,7 +62,7 @@ void	get_sections_64(
 		{
 			file_struct->is_valid = 0;
 			file_struct->error = "Malloc failed";
-			return;
+			return ;
 		}
 		section->sect_name = sect->sectname;
 		section->seg_name = sect->segname;
