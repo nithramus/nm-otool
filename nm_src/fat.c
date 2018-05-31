@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 20:32:16 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/31 12:51:01 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 16:57:56 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	set_fat_type(t_mainstruct *file_struct)
 		file_struct->size_of_header = sizeof(struct fat_arch_64);
 		file_struct->is_64 = 1;
 	}
-	file_struct->nb_command = reverse_32(&header.nfat_arch, file_struct);
+	file_struct->nb_command = r32(&header.nfat_arch, file_struct);
 	file_struct->file_type = 2;
 }
 

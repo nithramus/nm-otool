@@ -6,11 +6,26 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 11:30:15 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 14:47:04 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 17:37:09 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
+
+void	find_symbol(
+	t_libft_chained_list *maillon,
+	void *params)
+{
+	t_search_section	*search;
+	t_section			*sect;
+
+	sect = (t_section*)maillon->data;
+	search = (t_search_section*)params;
+	if (sect->num == search->value)
+	{
+		search->type = sect->sect_name;
+	}
+}
 
 void	get_type(t_mainstruct *file_struct)
 {

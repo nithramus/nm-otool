@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 16:54:58 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/31 13:18:18 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 16:58:24 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,8 @@ void	get_sections_32(
 
 	i = 0;
 	sect = (void*)lc + sizeof(struct segment_command);
-	while (i < (int)reverse_32(&lc->nsects, file_struct))
+	while (i < (int)r32(&lc->nsects, file_struct))
 	{
-		;
 		if (!(section = malloc(sizeof(t_section))))
 		{
 			file_struct->is_valid = 0;
@@ -82,9 +81,9 @@ void	get_sections_32(
 		section->seg_name = sect->segname;
 		section->num = *j;
 		if (ft_strcmp(sect->sectname, "__text") == 0)
-			print_memory(file_struct->file + reverse_32(&sect->offset,
-				file_struct), reverse_32(&sect->size, file_struct),
-					reverse_32(&sect->addr, file_struct), file_struct);
+			print_memory(file_struct->file + r32(&sect->offset,
+				file_struct), r32(&sect->size, file_struct),
+					r32(&sect->addr, file_struct), file_struct);
 		add_back_maillon(sections, section);
 		sect = (void*)sect + sizeof(struct section);
 		i++;
@@ -104,10 +103,9 @@ void	get_sections_64(
 
 	i = 0;
 	sect = (void*)lc + sizeof(struct segment_command_64);
-	while (i < (int)reverse_32(&lc->nsects, file_struct))
+	while (i < (int)r32(&lc->nsects, file_struct))
 	{
-		section = malloc(sizeof(t_section));
-		if (!section)
+		if (!(section = malloc(sizeof(t_section))))
 		{
 			file_struct->is_valid = 0;
 			return ;
@@ -116,7 +114,7 @@ void	get_sections_64(
 		section->seg_name = sect->segname;
 		section->num = *j;
 		if (ft_strcmp(sect->sectname, "__text") == 0)
-			print_memory(file_struct->file + reverse_32(&sect->offset,
+			print_memory(file_struct->file + r32(&sect->offset,
 				file_struct), reverse_64(&sect->size, file_struct),
 					reverse_64(&sect->addr, file_struct), file_struct);
 		add_back_maillon(sections, section);

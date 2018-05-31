@@ -4,8 +4,8 @@ files=`ls $path`
 for file in $files;
 do
 	echo $path/$file
-	./nm $path/$file > binary_test/test1
-	nm  $path/$file > binary_test/test2
+	./otool $path/$file > binary_test/test1
+	otool -t  $path/$file > binary_test/test2
 	diff binary_test/test1 binary_test/test2 > binary_test/diff_$file
 	echo $path/$file >> yolo
 	diff binary_test/test1 binary_test/test2 >> yolo

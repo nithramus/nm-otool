@@ -6,13 +6,13 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 13:20:04 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/31 11:43:53 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 16:58:07 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void		swap(char *array, char *ptr, size_t size)
+void		swap_bytes(char *array, char *ptr, size_t size)
 {
 	size_t i;
 
@@ -33,7 +33,7 @@ uint16_t	reverse_16(void *ptr, t_mainstruct *file_struct)
 	divi = 1;
 	if (file_struct->bit_order == 0)
 	{
-		swap(array, ptr, 2);
+		swap_bytes(array, ptr, 2);
 		value = *(uint16_t*)array;
 	}
 	else
@@ -41,7 +41,7 @@ uint16_t	reverse_16(void *ptr, t_mainstruct *file_struct)
 	return (value);
 }
 
-uint32_t	reverse_32(void *ptr, t_mainstruct *file_struct)
+uint32_t	r32(void *ptr, t_mainstruct *file_struct)
 {
 	uint32_t	value;
 	char		array[4];
@@ -50,7 +50,7 @@ uint32_t	reverse_32(void *ptr, t_mainstruct *file_struct)
 	divi = 1;
 	if (file_struct->bit_order == 0)
 	{
-		swap(array, ptr, 4);
+		swap_bytes(array, ptr, 4);
 		value = *(uint32_t*)array;
 	}
 	else
@@ -67,7 +67,7 @@ uint64_t	reverse_64(void *ptr, t_mainstruct *file_struct)
 	divi = 1;
 	if (file_struct->bit_order == 0)
 	{
-		swap(array, ptr, 8);
+		swap_bytes(array, ptr, 8);
 		value = *(uint64_t*)array;
 	}
 	else
@@ -80,5 +80,5 @@ uint64_t	reverse(void *ptr, t_mainstruct *file_struct)
 	if (file_struct->is_64)
 		return (reverse_64(ptr, file_struct));
 	else
-		return (uint64_t)(reverse_32(ptr, file_struct));
+		return (uint64_t)(r32(ptr, file_struct));
 }

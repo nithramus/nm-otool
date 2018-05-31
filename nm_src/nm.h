@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 20:37:58 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/31 12:53:05 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 17:37:41 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void						parse_arg(t_libft_chained_list **first,
 	int argc, char **argv);
 void						quit_clean(char *msg);
 void						parse_header(t_mainstruct *file_struct);
-uint32_t					reverse_32(void *ptr, t_mainstruct *file);
+uint32_t					r32(void *ptr, t_mainstruct *file);
 uint64_t					reverse_64(void *ptr, t_mainstruct *file_struct);
 
 void						show_symbols(t_libft_chained_list **symbols,
@@ -107,4 +107,7 @@ void						initmainstruct(t_mainstruct *file);
 void						order_files(t_libft_chained_list **files);
 void						file_done(t_libft_chained_list *maillon,
 	void *param);
+void						find_symbol(
+	t_libft_chained_list *maillon,
+	void *params);
 #endif

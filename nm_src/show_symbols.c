@@ -6,35 +6,16 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 18:21:41 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/30 20:46:20 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 17:38:01 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	find_symbol(
-	t_libft_chained_list *maillon,
-	void *params)
+void	print_letter_32(t_symbol *symbol, t_search_section search)
 {
-	t_search_section	*search;
-	t_section			*sect;
-
-	sect = (t_section*)maillon->data;
-	search = (t_search_section*)params;
-	if (sect->num == search->value)
-	{
-		search->type = sect->sect_name;
-	}
-}
-
-void	print_letter(t_symbol *symbol, t_libft_chained_list **section)
-{
-	t_search_section	search;
 	char				letter;
 
-	search.type = NULL;
-	search.value = (int)symbol->section;
-	function_on_chained_list(section, find_symbol, &search);
 	if (!search.type && (symbol->type & N_INDR) == N_INDR)
 		letter = 'I';
 	else if (!search.type && (symbol->type & N_ABS) == N_ABS)
@@ -49,6 +30,37 @@ void	print_letter(t_symbol *symbol, t_libft_chained_list **section)
 		letter = 'D';
 	else
 		letter = 'S';
+	if (!symbol->value && symbol->section == 0)
+		ft_printf("         ");
+	else
+		ft_printf("%08lx ", symbol->value);
+	if (!(symbol->type & N_EXT))
+		letter += 32;
+	ft_printf("%c ", letter);
+}
+
+void	print_letter_64(t_symbol *symbol, t_search_section search)
+{
+	char				letter;
+
+	if (!search.type && (symbol->type & N_INDR) == N_INDR)
+		letter = 'I';
+	else if (!search.type && (symbol->type & N_ABS) == N_ABS)
+		letter = 'A';
+	else if (!search.type)
+		letter = 'U';
+	else if (ft_strcmp(search.type, "__text") == 0)
+		letter = 'T';
+	else if (ft_strcmp(search.type, "__bss") == 0)
+		letter = 'B';
+	else if (ft_strcmp(search.type, "__data") == 0)
+		letter = 'D';
+	else
+		letter = 'S';
+	if (!symbol->value && letter == 'U')
+		ft_printf("                 ");
+	else
+		ft_printf("%016llx ", symbol->value);
 	if (!(symbol->type & N_EXT))
 		letter += 32;
 	ft_printf("%c ", letter);
@@ -59,15 +71,15 @@ void	print_symbol_32(
 	void *params)
 {
 	t_symbol			*symbol;
+	t_search_section	search;
 
 	symbol = (t_symbol*)sym->data;
+	search.type = NULL;
+	search.value = (int)symbol->section;
+	function_on_chained_list(params, find_symbol, &search);
 	if (symbol->type & N_STAB)
 		return ;
-	if (!symbol->value && symbol->section == 0)
-		ft_printf("         ");
-	else
-		ft_printf("%08lx ", symbol->value);
-	print_letter(symbol, params);
+	print_letter_32(symbol, search);
 	ft_putendl(symbol->name);
 }
 
@@ -76,15 +88,15 @@ void	print_symbol_64(
 	void *params)
 {
 	t_symbol			*symbol;
+	t_search_section	search;
 
 	symbol = (t_symbol*)sym->data;
+	search.type = NULL;
+	search.value = (int)symbol->section;
+	function_on_chained_list(params, find_symbol, &search);
 	if (symbol->type & N_STAB)
 		return ;
-	if (!symbol->value && symbol->section == 0)
-		ft_printf("                 ");
-	else
-		ft_printf("%016llx ", symbol->value);
-	print_letter(symbol, params);
+	print_letter_64(symbol, search);
 	ft_putendl(symbol->name);
 }
 

@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 16:54:58 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/31 11:39:33 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 16:58:57 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	get_sections_32(
 
 	i = 0;
 	sect = (void*)lc + sizeof(struct segment_command);
-	while (i < (int)reverse_32(&lc->nsects, file_struct))
+	while (i < (int)r32(&lc->nsects, file_struct))
 	{
 		section = malloc(sizeof(t_section));
 		if (!section)
@@ -55,7 +55,7 @@ void	get_sections_64(
 
 	i = 0;
 	sect = (void*)lc + sizeof(struct segment_command_64);
-	while (i < (int)reverse_32(&lc->nsects, file_struct))
+	while (i < (int)r32(&lc->nsects, file_struct))
 	{
 		section = malloc(sizeof(t_section));
 		if (!section)
