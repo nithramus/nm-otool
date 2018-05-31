@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 11:52:50 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/30 20:39:35 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 13:17:35 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	print_file(void *file_struct)
 	create_symbol_list(&symbols, &sections, file);
 	if (file->is_valid == 0)
 	{
-		ft_putendl(file->error);
+		ft_printf("%s\n", file->error);
 		return ;
 	}
 	order_symbol(&symbols);
@@ -55,6 +55,8 @@ void	print_file(void *file_struct)
 
 void	parse_file(t_mainstruct *file_struct, char *filename)
 {
+	if (file_struct->is_valid == 0)
+		ft_putendl(file_struct->error);
 	if (file_struct->is_valid == 0)
 		ft_putendl(file_struct->error);
 	else if (file_struct->file_type == 0)

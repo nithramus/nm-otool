@@ -6,11 +6,24 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 12:48:00 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/30 20:39:13 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 12:25:37 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
+
+void	file_done(
+	t_libft_chained_list *maillon,
+	void *param)
+{
+	t_search		*search;
+	t_mainstruct	*file_struct;
+
+	search = (t_search*)param;
+	file_struct = (t_mainstruct *)maillon->data;
+	if (file_struct->file == search->searched)
+		search->found = 1;
+}
 
 void	order(
 	t_libft_chained_list *maillon,

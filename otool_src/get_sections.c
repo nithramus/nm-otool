@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 16:54:58 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/26 17:27:47 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 13:18:18 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,11 @@ void	ft_itoa2(unsigned char value, char ret[2])
 		ret[1] = div + 'a' - 10;
 }
 
-void	print_memory(char *addrchar, size_t size, uint64_t value, t_mainstruct *file_struct)
+void	print_memory(char *addrchar, size_t size, uint64_t value,
+	t_mainstruct *file_struct)
 {
-	size_t i;
-	char ret[2];
+	size_t	i;
+	char	ret[2];
 
 	if (addrchar + size > file_struct->file + file_struct->file_length)
 		return ;
@@ -45,11 +46,11 @@ void	print_memory(char *addrchar, size_t size, uint64_t value, t_mainstruct *fil
 		{
 			ft_putendl("");
 			if (file_struct->is_64)
-				ft_printf("%016llx\t",value + i);
+				ft_printf("%016llx\t", value + i);
 			else
-				ft_printf("%08lx\t",value + i);
+				ft_printf("%08lx\t", value + i);
 		}
-		ft_itoa2(addrchar[i], ret);		
+		ft_itoa2(addrchar[i], ret);
 		write(1, ret, 2);
 		if (file_struct->bit_order || (i + 1) % 4 == 0)
 			ft_putstr(" ");
@@ -71,18 +72,19 @@ void	get_sections_32(
 	sect = (void*)lc + sizeof(struct segment_command);
 	while (i < (int)reverse_32(&lc->nsects, file_struct))
 	{
-		section = malloc(sizeof(t_section));
-		if (!section)
+		;
+		if (!(section = malloc(sizeof(t_section))))
 		{
 			file_struct->is_valid = 0;
-			file_struct->error = "Malloc failed";
 			return ;
 		}
 		section->sect_name = sect->sectname;
 		section->seg_name = sect->segname;
 		section->num = *j;
 		if (ft_strcmp(sect->sectname, "__text") == 0)
-			print_memory(file_struct->file + reverse_32(&sect->offset, file_struct), reverse_32(&sect->size, file_struct), reverse_32(&sect->addr, file_struct), file_struct);
+			print_memory(file_struct->file + reverse_32(&sect->offset,
+				file_struct), reverse_32(&sect->size, file_struct),
+					reverse_32(&sect->addr, file_struct), file_struct);
 		add_back_maillon(sections, section);
 		sect = (void*)sect + sizeof(struct section);
 		i++;
@@ -108,15 +110,15 @@ void	get_sections_64(
 		if (!section)
 		{
 			file_struct->is_valid = 0;
-			file_struct->error = "Malloc failed";
 			return ;
 		}
 		section->sect_name = sect->sectname;
 		section->seg_name = sect->segname;
 		section->num = *j;
-		// TEST SIZE
 		if (ft_strcmp(sect->sectname, "__text") == 0)
-			print_memory(file_struct->file + reverse_32(&sect->offset, file_struct), reverse_64(&sect->size, file_struct), reverse_64(&sect->addr, file_struct), file_struct);
+			print_memory(file_struct->file + reverse_32(&sect->offset,
+				file_struct), reverse_64(&sect->size, file_struct),
+					reverse_64(&sect->addr, file_struct), file_struct);
 		add_back_maillon(sections, section);
 		sect = (void*)sect + sizeof(struct section_64);
 		i++;

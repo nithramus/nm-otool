@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 11:52:50 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/26 17:34:44 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 13:17:46 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	print_file(void *file_struct)
 	file = (t_mainstruct*)file_struct;
 	if (file->is_valid == 0)
 	{
-		ft_putendl(file->error);
+		ft_printf("%s\n", file->error);
 		return ;
 	}
 	create_symbol_list(&symbols, &sections, file);
@@ -48,7 +48,7 @@ void	print_file(void *file_struct)
 	delete_chained_list(&sections, free);
 }
 
-void	parse_file(t_mainstruct *file_struct, char *filename)
+void	parse_file(t_mainstruct *file_struct, char *fname)
 {
 	if (file_struct->is_valid == 0)
 		ft_putendl(file_struct->error);
@@ -56,15 +56,19 @@ void	parse_file(t_mainstruct *file_struct, char *filename)
 	{
 		parse_header(file_struct);
 		if (strcmp(file_struct->architecture, "ppc") == 0)
-			ft_printf("%s (architecture %s):\n", filename, file_struct->architecture);
+			ft_printf("%s (architecture %s):\n", fname,
+				file_struct->architecture);
 		else
-			ft_printf("%s:\n", filename);
+			ft_printf("%s:\n", fname);
 		print_file(file_struct);
 	}
 	else if (file_struct->file_type == 1)
-		archive(file_struct, filename);
+	{
+		ft_printf("%s : %s\n", "Archive : ", fname);
+		archive(file_struct, fname);
+	}
 	else if (file_struct->file_type == 2)
-		fat(file_struct, filename);
+		fat(file_struct, fname);
 }
 
 int		main(int argc, char **argv)
@@ -83,7 +87,6 @@ int		main(int argc, char **argv)
 		free(file_struct->file);
 	}
 	else
-	{
 		while (i < argc)
 		{
 			file_struct = create_file(argv[i]);
@@ -94,5 +97,4 @@ int		main(int argc, char **argv)
 			free(file_struct);
 			i++;
 		}
-	}
 }

@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 13:01:35 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/26 17:02:55 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 13:03:45 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,27 @@ void			get_file(t_mainstruct *file_struct, char *file_name)
 {
 	int			fd;
 	struct stat	buff;
-	void		*file;
 
 	if ((fd = open(file_name, O_RDONLY)) <= 0)
 	{
 		file_struct->is_valid = -1;
-		file_struct->error = "Invalid file";
 		return ;
 	}
 	if (fstat(fd, &buff) < -1)
 	{
 		file_struct->is_valid = -1;
-		file_struct->error = "Invalid file";
 		return ;
 	}
-	if (!(file = (char*)malloc(buff.st_size + 2)))
-		{
-			file_struct->is_valid = 0;
-			file_struct->error = "Malloc failed";
-		}
-	if (read(fd, file, buff.st_size) < buff.st_size)
+	if (!(file_struct->file = (char*)malloc(buff.st_size + 2)))
+	{
+		file_struct->is_valid = 0;
+		return ;
+	}
+	if (read(fd, file_struct->file, buff.st_size) < buff.st_size)
 	{
 		file_struct->is_valid = -1;
-		file_struct->error = "Invalid file";
 		return ;
 	}
-	file_struct->file = file;
 	file_struct->file[buff.st_size] = '\0';
 	file_struct->file_length = buff.st_size;
 }
@@ -70,7 +65,10 @@ t_mainstruct	*create_file(char *file)
 	initmainstruct(file_struct);
 	get_file(file_struct, file);
 	if (file_struct->is_valid == 0)
+	{
+		file_struct->error = "Invalid file";
 		return (NULL);
+	}
 	get_type(file_struct);
 	return (file_struct);
 }

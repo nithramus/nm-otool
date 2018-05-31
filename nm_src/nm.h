@@ -6,12 +6,12 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 20:37:58 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/30 20:42:47 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 12:53:05 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NM
-# define NM
+#ifndef NM_H
+# define NM_H
 
 # include "../libft/libft/libft.h"
 # include "../libft/ft_printf/ft_printf.h"
@@ -105,5 +105,6 @@ void						print_file(void *file_struct);
 int							header_name(void *ptr, char **name);
 void						initmainstruct(t_mainstruct *file);
 void						order_files(t_libft_chained_list **files);
-
+void						file_done(t_libft_chained_list *maillon,
+	void *param);
 #endif

@@ -6,24 +6,11 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 11:50:49 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/26 17:23:54 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 12:25:18 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
-
-void	file_done(
-	t_libft_chained_list *maillon,
-	void *param)
-{
-	t_search		*search;
-	t_mainstruct	*file_struct;
-
-	search = (t_search*)param;
-	file_struct = (t_mainstruct *)maillon->data;
-	if (file_struct->file == search->searched)
-		search->found = 1;
-}
 
 void	show_all_files(
 	t_libft_chained_list *maillon,
@@ -112,7 +99,7 @@ void	archive(t_mainstruct *file_struct, char *file)
 	struct ranlib			*ran;
 
 	file_list = NULL;
-	offset = 8 + header_name(file_struct->file + offset, &name);
+	offset = 8 + header_name(file_struct->file + 8, &name);
 	if (!name)
 		return ;
 	free(name);

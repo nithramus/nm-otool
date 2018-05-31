@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 15:08:39 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/26 17:25:13 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 11:38:32 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ void	get_all_symbols(
 		{
 			file_struct->is_valid = 0;
 			file_struct->error = "Malloc failed";
-			return;
+			return ;
 		}
-		// VERIFIER SYMTABSIZE, et stringable jump
 		if (stringable + reverse_32(&symtab->n_un.n_strx, file_struct) < (void*)file_struct->file + file_struct->file_length)
 			symbol->name = stringable + reverse_32(&symtab->n_un.n_strx, file_struct);
 		else

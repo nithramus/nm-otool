@@ -6,13 +6,13 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 13:20:04 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/26 16:47:43 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 13:17:31 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	swap(char *array, char *ptr, size_t size)
+void		swap(char *array, char *ptr, size_t size)
 {
 	size_t i;
 

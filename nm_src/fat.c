@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 20:32:16 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/26 17:29:57 by bandre           ###   ########.fr       */
+/*   Updated: 2018/05/31 12:51:01 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,11 @@ void	set_fat_type(t_mainstruct *file_struct)
 		file_struct->size_of_header = sizeof(struct fat_arch_64);
 		file_struct->is_64 = 1;
 	}
-	else
-	{
-		file_struct->is_valid = 0;
-		file_struct->error = "Invalid file";
-		return ;
-	}
 	file_struct->nb_command = reverse_32(&header.nfat_arch, file_struct);
 	file_struct->file_type = 2;
 }
 
-void	create_filestruct_from_fat(struct fat_arch *fat,
+void	ftofat(struct fat_arch *fat,
 	void *file_ptr, t_mainstruct *main_file, char *file)
 {
 	t_mainstruct		file_struct;
@@ -64,39 +58,30 @@ void	create_filestruct_from_fat(struct fat_arch *fat,
 	print_file(&file_struct);
 }
 
-void	fat(t_mainstruct *file_struct, char *file)
+void	fat(t_mainstruct *f, char *file)
 {
 	struct fat_header	*header;
 	unsigned int		i;
 	int					offset;
 
-	i = 0;
+	i = -1;
 	offset = sizeof(struct fat_header);
-	header = (struct fat_header*)file_struct->file;
-	set_fat_type(file_struct);
-	if (file_struct->is_valid == 0)
+	header = (struct fat_header*)f->file;
+	set_fat_type(f);
+	while (++i < f->nb_command)
 	{
-		ft_putendl(file_struct->error);
-		return ;
-	}
-	while (i < file_struct->nb_command)
-	{
-		if (reverse(file_struct->file + offset, file_struct) == CPU_TYPE_X86_64)
+		if (reverse(f->file + offset, f) == CPU_TYPE_X86_64)
 		{
-			create_filestruct_from_fat((struct fat_arch *)(file_struct->file
-				+ offset), file_struct->file, file_struct, file);
+			ftofat((struct fat_arch *)(f->file + offset), f->file, f, file);
 			return ;
 		}
-		offset += file_struct->size_of_header;
-		i++;
+		offset += f->size_of_header;
 	}
-	i = 0;
+	i = -1;
 	offset = sizeof(struct fat_header);
-	while (i < file_struct->nb_command)
+	while (++i < f->nb_command)
 	{
-		create_filestruct_from_fat((struct fat_arch *)(file_struct->file + offset),
-			file_struct->file, file_struct, file);
-		offset += file_struct->size_of_header;
-		i++;
+		ftofat((struct fat_arch *)(f->file + offset), f->file, f, file);
+		offset += f->size_of_header;
 	}
 }
