@@ -6,13 +6,13 @@
 #    By: bandre <bandre@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/07 16:17:12 by bandre            #+#    #+#              #
-#    Updated: 2018/05/26 17:30:23 by bandre           ###   ########.fr        #
+#    Updated: 2018/06/01 14:29:21 by bandre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = nm
+NAME = ft_nm
 
-OTOOL = otool
+OTOOL = ft_otool
 
 NM_SRC_PATH = nm_src
 

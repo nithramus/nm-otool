@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 11:52:50 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/31 13:17:46 by bandre           ###   ########.fr       */
+/*   Updated: 2018/06/01 14:28:07 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,5 @@ int		main(int argc, char **argv)
 			free(file_struct);
 			i++;
 		}
+	return (0);
 }
