@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 11:52:50 by bandre            #+#    #+#             */
-/*   Updated: 2018/06/01 14:28:07 by bandre           ###   ########.fr       */
+/*   Updated: 2018/06/01 19:02:46 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,10 @@ int		main(int argc, char **argv)
 {
 	int				i;
 	t_mainstruct	*file_struct;
+	int				retour;
 
 	i = 1;
+	retour = 0;
 	if (argc < 2)
 	{
 		file_struct = create_file("a.out");
@@ -93,6 +95,8 @@ int		main(int argc, char **argv)
 			if (!file_struct)
 				return (1);
 			parse_file(file_struct, argv[i]);
+			if (file_struct->is_valid == 0)
+				retour = 1;
 			free(file_struct->file);
 			free(file_struct);
 			i++;

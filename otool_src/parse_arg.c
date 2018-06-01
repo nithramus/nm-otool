@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 13:01:35 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/31 13:03:45 by bandre           ###   ########.fr       */
+/*   Updated: 2018/06/01 19:36:57 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void			initmainstruct(t_mainstruct *file)
 	file->size_of_header = 0;
 	file->nb_command = 0;
 	file->filename = NULL;
+	file->architecture = NULL;
 }
 
 t_mainstruct	*create_file(char *file)

@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 18:21:41 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/31 17:38:01 by bandre           ###   ########.fr       */
+/*   Updated: 2018/06/01 18:56:09 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	print_letter_32(t_symbol *symbol, t_search_section search)
 		letter = 'I';
 	else if (!search.type && (symbol->type & N_ABS) == N_ABS)
 		letter = 'A';
+	else if (!search.type && symbol->value && symbol->type == N_UNDF)
+		letter = 'C';
 	else if (!search.type)
 		letter = 'U';
 	else if (ft_strcmp(search.type, "__text") == 0)
@@ -47,6 +49,8 @@ void	print_letter_64(t_symbol *symbol, t_search_section search)
 		letter = 'I';
 	else if (!search.type && (symbol->type & N_ABS) == N_ABS)
 		letter = 'A';
+	else if (!search.type && symbol->value && symbol->type == N_UNDF)
+		letter = 'C';
 	else if (!search.type)
 		letter = 'U';
 	else if (ft_strcmp(search.type, "__text") == 0)

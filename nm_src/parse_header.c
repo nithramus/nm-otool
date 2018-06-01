@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 19:37:30 by bandre            #+#    #+#             */
-/*   Updated: 2018/06/01 14:53:12 by bandre           ###   ########.fr       */
+/*   Updated: 2018/06/01 16:27:36 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	get_header_executable(t_mainstruct *file_struct)
 	file_struct->nb_command = r32(&header.ncmds, file_struct);
 	info = NXGetArchInfoFromCpuType(r32(&header.cputype, file_struct),
 		r32(&header.cpusubtype, file_struct));
-	file_struct->architecture = (char*)info->name;
+	if (info && info->name)
+		file_struct->architecture = (char*)info->name;
 }
 
 void	parse_header(t_mainstruct *file_struct)
