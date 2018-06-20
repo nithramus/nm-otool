@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 20:32:16 by bandre            #+#    #+#             */
-/*   Updated: 2018/06/01 19:16:39 by bandre           ###   ########.fr       */
+/*   Updated: 2018/06/01 20:21:28 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,16 @@ void	ftofat(struct fat_arch *fat,
 	file_struct.file = file_ptr + reverse(&fat->offset, main_file);
 	get_type(&file_struct);
 	info = NXGetArchInfoFromCpuType(r32(&fat->cputype, main_file), r32(&fat->cpusubtype, main_file));
-	if (info && strcmp(info->name, "x86_64") != 0)
-	{
+	if (info && strcmp(info->name, "x86_64") != 0 && file_struct.file_type != 1)
 		ft_printf("\n%s (for architecture %s):\n", file, info->name);
+	if (file_struct.file_type == 0)
+	{
+		parse_header(&file_struct);
+		print_file(&file_struct);
 	}
-	parse_file(&file_struct, file);
+	else{
+		parse_file(&file_struct, file);
+	}
 }
 
 void	fat(t_mainstruct *f, char *file)

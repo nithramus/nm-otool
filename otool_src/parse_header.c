@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 19:37:30 by bandre            #+#    #+#             */
-/*   Updated: 2018/06/01 19:37:39 by bandre           ###   ########.fr       */
+/*   Updated: 2018/06/20 14:57:41 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	parse_header(t_mainstruct *file_struct)
 	if (file_struct->file_length < (int)(sizeof(struct mach_header_64)))
 	{
 		file_struct->is_valid = 0;
-		file_struct->error = "Invalid file";
+		file_struct->error = "Invalid file1";
 		return ;
 	}
 	header = *(struct mach_header_64*)file_struct->file;
@@ -53,7 +53,7 @@ void	parse_header(t_mainstruct *file_struct)
 	else
 	{
 		file_struct->is_valid = 0;
-		file_struct->error = "Invalid file";
+		file_struct->error = "Invalid file2";
 		return ;
 	}
 	get_header_executable(file_struct);

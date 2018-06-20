@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 11:52:50 by bandre            #+#    #+#             */
-/*   Updated: 2018/06/01 19:02:46 by bandre           ###   ########.fr       */
+/*   Updated: 2018/06/20 16:34:04 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	parse_file(t_mainstruct *file_struct, char *fname)
 	else if (file_struct->file_type == 0)
 	{
 		parse_header(file_struct);
-		if (strcmp(file_struct->architecture, "ppc") == 0)
+		if (strcmp(file_struct->architecture, "x86_64") != 0 && strcmp(file_struct->architecture, "i386") != 0)
 			ft_printf("%s (architecture %s):\n", fname,
 				file_struct->architecture);
 		else
@@ -64,7 +64,7 @@ void	parse_file(t_mainstruct *file_struct, char *fname)
 	}
 	else if (file_struct->file_type == 1)
 	{
-		ft_printf("%s : %s\n", "Archive : ", fname);
+		ft_printf("%s : %s\n", "Archive", fname);
 		archive(file_struct, fname);
 	}
 	else if (file_struct->file_type == 2)
