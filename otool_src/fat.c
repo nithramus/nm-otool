@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 20:32:16 by bandre            #+#    #+#             */
-/*   Updated: 2018/06/20 16:37:57 by bandre           ###   ########.fr       */
+/*   Updated: 2018/06/20 16:53:40 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ftofat(struct fat_arch *fat,
 	char *file)
 {
 	t_mainstruct		file_struct;
-	const NXArchInfo		*info;
+	const NXArchInfo	*info;
 
 	initmainstruct(&file_struct);
 	file_struct.file_length = reverse(&fat->size, main_file);
@@ -55,7 +55,8 @@ void	ftofat(struct fat_arch *fat,
 		invalid_file(&file_struct);
 	file_struct.file = file_ptr + reverse(&fat->offset, main_file);
 	get_type(&file_struct);
-	info = NXGetArchInfoFromCpuType(r32(&fat->cputype, main_file), r32(&fat->cpusubtype, main_file));
+	info = NXGetArchInfoFromCpuType(r32(&fat->cputype, main_file),
+		r32(&fat->cpusubtype, main_file));
 	if (info && strcmp(info->name, "x86_64") != 0 && file_struct.file_type != 1)
 		ft_printf("%s (architecture %s):\n", file, info->name);
 	else if (file_struct.file_type != 1)

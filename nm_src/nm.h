@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 20:37:58 by bandre            #+#    #+#             */
-/*   Updated: 2018/06/01 16:00:17 by bandre           ###   ########.fr       */
+/*   Updated: 2018/06/20 16:52:46 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,8 @@ void						file_done(t_libft_chained_list *maillon,
 void						find_symbol(
 	t_libft_chained_list *maillon,
 	void *params);
-void						parse_file(t_mainstruct *file_struct, char *filename);
+void						parse_file(t_mainstruct *file_struct,
+	char *filename);
 void						invalid_file(t_mainstruct *f);
 
 #endif

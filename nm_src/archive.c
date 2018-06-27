@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 11:50:49 by bandre            #+#    #+#             */
-/*   Updated: 2018/06/01 19:30:10 by bandre           ###   ########.fr       */
+/*   Updated: 2018/06/27 20:01:53 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int		header_name(void *ptr, char **name)
 
 	size = sizeof(struct ar_hdr);
 	header = (struct ar_hdr*)ptr;
+	// verifier header->ar_name !
 	if (ft_strncmp(header->ar_name, "#1/", 3) == 0)
 	{
 		if (!(*name = malloc(ft_atoi(header->ar_name + 3))))
@@ -105,9 +106,13 @@ void	archive(t_mainstruct *file_struct, char *file)
 	free(name);
 	size = *(int*)(file_struct->file + offset);
 	offset += sizeof(int);
+	if ((void*)file_struct->file + size >= (void*)file_struct->file + file_struct->file_length)
+		return;
 	while (size > 0)
 	{
 		ran = (struct ranlib*)((void*)file_struct->file + offset);
+		if ((void*)file_struct->file + ran->ran_off >= (void*)file_struct->file + file_struct->file_length)
+			return;
 		if ((create_file_from_archive((struct ar_hdr*)((void*)file_struct->file
 			+ ran->ran_off), &file_list)) == 0)
 			return ;

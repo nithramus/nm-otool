@@ -6,19 +6,11 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 11:52:50 by bandre            #+#    #+#             */
-/*   Updated: 2018/06/01 14:49:20 by bandre           ###   ########.fr       */
+/*   Updated: 2018/06/27 19:59:13 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
-
-void	ft_putvoid(void *str)
-{
-	t_symbol *test;
-
-	test = (t_symbol*)str;
-	ft_printf("%016lx %s %d\n", test->value, test->name, (int)test->section);
-}
 
 void	ft_putsections(void *ptr)
 {
@@ -70,30 +62,40 @@ void	parse_file(t_mainstruct *file_struct, char *filename)
 		fat(file_struct, filename);
 }
 
+int		yolo(char *file)
+{
+	t_mainstruct	*file_struct;
+	int				retour;
+
+	retour = 0;
+	if (!(file_struct = create_file(file)))
+		return (1);
+	parse_file(file_struct, file);
+	if (file_struct->is_valid == 0)
+		retour = 1;
+	free(file_struct->file);
+	free(file_struct);
+	return (retour);
+}
+
 int		main(int argc, char **argv)
 {
 	int				i;
-	t_mainstruct	*file_struct;
+	int				retour;
 
 	i = 1;
-	if (argc < 2)
+	retour = 0;
+	if (argc < 2 && (retour = 0))
 	{
-		file_struct = create_file("a.out");
-		if (!file_struct)
-			return (1);
-		parse_file(file_struct, "a.out");
-		free(file_struct);
-		free(file_struct->file);
+		if (yolo("a.out") != 0)
+			retour = 1;
 	}
 	else
 		while (i < argc)
 		{
-			file_struct = create_file(argv[i]);
-			if (!file_struct)
-				return (1);
-			parse_file(file_struct, argv[i]);
-			free(file_struct->file);
-			free(file_struct);
+			if (yolo(argv[i]) != 0)
+				retour = 1;
 			i++;
 		}
+	return (retour);
 }

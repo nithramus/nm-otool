@@ -6,11 +6,19 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 11:30:15 by bandre            #+#    #+#             */
-/*   Updated: 2018/05/24 14:47:04 by bandre           ###   ########.fr       */
+/*   Updated: 2018/06/20 17:40:40 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
+
+void	ft_putvoid(void *str)
+{
+	t_symbol *test;
+
+	test = (t_symbol*)str;
+	ft_printf("%016lx %s %d\n", test->value, test->name, (int)test->section);
+}
 
 void	get_type(t_mainstruct *file_struct)
 {
