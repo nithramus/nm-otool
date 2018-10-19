@@ -113,5 +113,6 @@ void						find_symbol(
 void						parse_file(t_mainstruct *file_struct,
 	char *filename);
 void						invalid_file(t_mainstruct *f);
+int							header_name(void *ptr, char **name);
 
 #endif

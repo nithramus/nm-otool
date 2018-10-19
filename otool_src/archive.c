@@ -6,7 +6,7 @@
 /*   By: bandre <bandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 11:50:49 by bandre            #+#    #+#             */
-/*   Updated: 2018/06/01 20:02:44 by bandre           ###   ########.fr       */
+/*   Updated: 2018/06/27 20:01:53 by bandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	show_all_files(
 
 	file_struct = (t_mainstruct *)maillon->data;
 	parse_header(file_struct);
-	ft_printf("%s(%s):\n", param, file_struct->filename);
+	ft_printf("\n%s(%s):\n", param, file_struct->filename);
 	print_file(file_struct);
 }
 
@@ -53,34 +53,6 @@ int		create_file_from_archive(
 	return (1);
 }
 
-int		header_name(void *ptr, char **name)
-{
-	struct ar_hdr	*header;
-	int				size;
-	char			*pos;
-
-	size = sizeof(struct ar_hdr);
-	header = (struct ar_hdr*)ptr;
-	if (ft_strncmp(header->ar_name, "#1/", 3) == 0)
-	{
-		if (!(*name = malloc(ft_atoi(header->ar_name + 3))))
-			return (0);
-		ft_strcpy(*name, ptr + size);
-		size += ft_atoi(header->ar_name + 3);
-	}
-	else
-	{
-		if (!(*name = malloc(20)))
-			return (0);
-		ft_strncpy(*name, header->ar_name, 16);
-		(*name)[16] = '\0';
-		pos = ft_strchr(*name, 0x20);
-		if (pos)
-			*pos = '\0';
-	}
-	return (size);
-}
-
 void	delete_archive(void *file)
 {
 	t_mainstruct *file_struct;
@@ -90,7 +62,14 @@ void	delete_archive(void *file)
 	free(file);
 }
 
-void	archive(t_mainstruct *file_struct, char *file)
+void	action(t_libft_chained_list *file_list, char *file)
+{
+	order_files(&file_list);
+	function_on_chained_list(&file_list, show_all_files, file);
+	delete_chained_list(&file_list, delete_archive);
+}
+
+void	archive(t_mainstruct *fs, char *file)
 {
 	t_libft_chained_list	*file_list;
 	int						offset;
@@ -98,23 +77,23 @@ void	archive(t_mainstruct *file_struct, char *file)
 	char					*name;
 	struct ranlib			*ran;
 
-	file_list = NULL;
-	offset = 8 + header_name(file_struct->file + 8, &name);
-	if (!name)
+	offset = 8 + header_name(fs->file + 8, &name);
+	if (!name && (file_list = NULL))
 		return ;
 	free(name);
-	size = *(int*)(file_struct->file + offset);
+	size = *(int*)(fs->file + offset);
 	offset += sizeof(int);
-	while (size > 0)
+	if ((void*)fs->file + size >= (void*)fs->file + fs->file_length)
+		return ;
+	while (size > 0 && (ran = (struct ranlib*)((void*)fs->file + offset)))
 	{
-		ran = (struct ranlib*)((void*)file_struct->file + offset);
-		if ((create_file_from_archive((struct ar_hdr*)((void*)file_struct->file
+		if ((void*)fs->file + ran->ran_off >= (void*)fs->file + fs->file_length)
+			return ;
+		if ((create_file_from_archive((struct ar_hdr*)((void*)fs->file
 			+ ran->ran_off), &file_list)) == 0)
 			return ;
 		offset += sizeof(struct ranlib);
 		size -= sizeof(struct ranlib);
 	}
-	order_files(&file_list);
-	function_on_chained_list(&file_list, show_all_files, file);
-	delete_chained_list(&file_list, delete_archive);
+	action(file_list, file);
 }

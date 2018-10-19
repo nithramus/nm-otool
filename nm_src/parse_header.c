@@ -12,6 +12,34 @@
 
 #include "nm.h"
 
+int		header_name(void *ptr, char **name)
+{
+	struct ar_hdr	*header;
+	int				size;
+	char			*pos;
+
+	size = sizeof(struct ar_hdr);
+	header = (struct ar_hdr*)ptr;
+	if (ft_strncmp(header->ar_name, "#1/", 3) == 0)
+	{
+		if (!(*name = malloc(ft_atoi(header->ar_name + 3))))
+			return (0);
+		ft_strcpy(*name, ptr + size);
+		size += ft_atoi(header->ar_name + 3);
+	}
+	else
+	{
+		if (!(*name = malloc(20)))
+			return (0);
+		ft_strncpy(*name, header->ar_name, 16);
+		(*name)[16] = '\0';
+		pos = ft_strrchr(*name, 20);
+		if (pos)
+			*pos = '\0';
+	}
+	return (size);
+}
+
 void	get_header_executable(t_mainstruct *file_struct)
 {
 	struct mach_header_64	header;

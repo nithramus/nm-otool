@@ -111,5 +111,6 @@ void						parse_file(t_mainstruct *file_struct,
 	char *filename);
 void						invalid_file(t_mainstruct *f);
 void						ft_putvoid(void *str);
+int							header_name(void *ptr, char **name);
 
 #endif
